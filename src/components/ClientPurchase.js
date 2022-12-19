@@ -8,7 +8,7 @@ const ClientPurchase = () => {
             <Sidebar />
 
             <div className='' style={{ backgroundColor: "white", height: "100vh" }}>
-                <div className='px-4 pt-4 pb-4' style={{ height: "100vh", backgroundColor: "", paddingLeft: "0px", paddingRight: "0" }}>
+                <div className='' style={{ height: "100vh", backgroundColor: "", paddingLeft: "0px", paddingRight: "0" }}>
                     <div className="g-0" style={{ backgroundColor: "beige", height: "100%", position: "relative" }}>
                         <div className="">
                             <div className="">

@@ -283,7 +283,6 @@ function PDF_Creation_Client() {
 
                         </TableHeader>
                         <TableBody>
-
                             <DataTableCell style={styles.productTableText} getContent={(r) => ""} />
                             <DataTableCell style={styles.productTableText} getContent={(r) => ""} />
                             <DataTableCell style={styles.productTableText} getContent={(r) => ""} />
@@ -293,8 +292,6 @@ function PDF_Creation_Client() {
                             <DataTableCell style={styles.productTableText} getContent={(r) => ""} />
                             <DataTableCell style={styles.productTableText} getContent={(r) => ""} />
                             {/* <DataTableCell style={styles.productTableText} getContent={(r) => r.mj_pamp_value} /> */}
-
-
                         </TableBody>
                     </Table>
                     <Text>  </Text>
@@ -311,7 +308,6 @@ function PDF_Creation_Client() {
                             <DataTableCell style={styles.productTableText} getContent={(r) => ""} />
                             <DataTableCell style={styles.productTableText} getContent={(r) => "DELIVERY"} />
                             <DataTableCell style={styles.productTableText} getContent={(r) => "0"} />
-
                         </TableBody>
 
                     </Table>

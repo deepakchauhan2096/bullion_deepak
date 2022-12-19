@@ -145,7 +145,7 @@ export default function AddSuppliers() {
       <button onClick={handleOpen} className="fixed-button-modal">Add New Supplier</button>
       <button onClick={handle_update_modal} className="fixed-button-modal ">Update Supplier</button>
       {all_suppliers?<DataGrid
-          style={{ height: "94vh", width: "100%",position:"absolute",top:"0" }}
+          style={{ height: "100vh", width: "100%",position:"absolute",top:"0" }}
           rows={rows}
           columns={columns}
           pageSize={20}

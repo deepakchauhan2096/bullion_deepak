@@ -260,7 +260,7 @@ const Dashboard = () => {
     color2 = "#e6e6e6";
   }
   return (
-    <div style={{ padding: 20 }}>
+    <div>
       {/* <Navbar /> */}
       <Sidebar />
       <Bullion_invoice data={body} agreePrice={agreePrice} ref={childRef} />

@@ -8,7 +8,7 @@ const UserFormAddSupplier = () => {
   return (
     <>
       <Sidebar />
-      <div className='p-4'>
+      <div className=''>
         {/* <AddNewItems /> */}
         <AddSuppliers />
       </div>

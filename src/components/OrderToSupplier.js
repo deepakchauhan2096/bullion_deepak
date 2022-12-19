@@ -6,11 +6,8 @@ const OrderToSupplier = () => {
         <>
             <Sidebar />
 
-            <div className='container-fluid' style={{ backgroundColor: "white", height: "100vh" }}>
-                {/* <div className="row">
-                    <p className='bg-secondary text-white py-2'>Order To Supplier</p>
-                </div> */}
-                <div className='px-2 pt-4 pb-4' style={{ height: "100vh", backgroundColor: "", paddingLeft: "0px", paddingRight: "0" }}>
+         
+                <div className='' style={{ height: "100vh", backgroundColor: "", paddingLeft: "0px", paddingRight: "0" }}>
                     <div className="container g-0" style={{ backgroundColor: "beige", height: "100%", position: "relative" }}>
 
                         <table className="table-border" style={{ backgroundColor: "white" }}>
@@ -179,9 +176,7 @@ const OrderToSupplier = () => {
                         </div>
 
                     </div>
-
                 </div>
-            </div>
         </>
     )
 }

@@ -187,12 +187,12 @@ const NewCombination = () => {
 
   return (
     < >
-    <div style={{padding:20}}>
+    <div >
       {" "}
       <Sidebar />
 
 
-      <button
+      {/* <button
         style={{
           padding: 10,
           fontSize: 15,
@@ -207,9 +207,9 @@ const NewCombination = () => {
         onClick={getPriceFromAPI}
       >
         Fetch live price
-      </button>
+      </button> */}
 
-      <div style={{ display: "flex" , float:"right", padding:10 }}>
+      {/* <div style={{ display: "flex" , float:"right", padding:10 }}>
             <table>
               <thead>
               
@@ -246,31 +246,27 @@ const NewCombination = () => {
               </tbody>
             </table>
 
-          </div>
+          </div> */}
 
 
-
+      
       {data2 ? (
         <DataGrid
-          style={{ height: "28rem", width: "100%" }}
+          style={{ height: "100vh", width: "100%"}}
           rows={rows}
           columns={columns}
           pageSize={20}
           getRowId={(row) => row.supplier_id}
           rowsPerPageOptions={[20]}
           components={{ Toolbar: GridToolbar }}
+          density="compact"
         />
       ) : (
         <center>
           <h2>Loading.... </h2>
         </center>
       )}
-      <div className="container-fluid add-table g-0 table-container">
-        <div className=" overflow-scroll">
-        {/* <button onClick={()=> console.log(data2) } >click to console</button> */}
-        </div>
-        <div className="delete-button-class"></div>
-      </div>
+
       </div>
     </>
   );
