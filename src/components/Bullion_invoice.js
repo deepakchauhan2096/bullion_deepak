@@ -839,7 +839,7 @@ setImages(formData.images)
                             sx={{ width: 200 }}
                             renderInput={(params) => (
                                 // <input className="input-fields" {...params} title="Select Client" />
-                              <TextField  className="input-fields" {...params} label="Select Client" />
+                              <TextField  className="input-fields" {...params} hiddenLabel="true" label="" />
 
                             )}
                           />
