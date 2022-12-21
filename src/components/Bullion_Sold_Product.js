@@ -1,4 +1,4 @@
-import React,{useEffect,useState,useContext} from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import Sidebar from "./Sidebar";
 import { dataContext } from "../helpers/context";
@@ -15,60 +15,60 @@ import { useNavigate } from "react-router-dom";
 const Bullion_Sold_Product = () => {
   const navigate = useNavigate();
 
-    const [alllist, setAllList] = useState();
-    const { productValue, setProdctValue } = useContext(dataContext);
-    const [open, setOpen] = useState(false);
-    const [modal_data, setModal_data] =useState()
+  const [alllist, setAllList] = useState();
+  const { productValue, setProdctValue } = useContext(dataContext);
+  const [open, setOpen] = useState(false);
+  const [modal_data, setModal_data] = useState()
 
-    const style = {
-      position: "absolute",
-      top: "50%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-      width: 1000,
-      bgcolor: "background.paper",
-      border: "2px solid #000",
-      boxShadow: 24,
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 1000,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
 
-      p: 2,
-    };
+    p: 2,
+  };
 
-useEffect(() => {
+  useEffect(() => {
     const allListdata = () => {
-        fetch(`http://${process.env.REACT_APP_SERVER_IP}:4000/sold_product_bullion`)
-          .then((res) => res.json())
-          .then((data) =>
-            setAllList(data)
-          );
-        console.log(alllist, "alllist");
-      };
-      allListdata();
-}, [])
+      fetch(`http://${process.env.REACT_APP_SERVER_IP}:4000/sold_product_bullion`)
+        .then((res) => res.json())
+        .then((data) =>
+          setAllList(data)
+        );
+      console.log(alllist, "alllist");
+    };
+    allListdata();
+  }, [])
 
 
-const handleOpen = (cellValues) => {
-  setOpen(true);
-  console.log(cellValues, "celvalue");
-  setModal_data(alllist.find((o)=> o.order_id == cellValues.order_id))
-  navigate("/View_more",{state:{modal:alllist.find((o) => o.order_id == cellValues.order_id)}});
+  const handleOpen = (cellValues) => {
+    setOpen(true);
+    console.log(cellValues, "celvalue");
+    setModal_data(alllist.find((o) => o.order_id == cellValues.order_id))
+    navigate("/View_more", { state: { modal: alllist.find((o) => o.order_id == cellValues.order_id) } });
 
-};
-const handleClose = () => {
-  setOpen(false);
-  console.log(modal_data,"modal data")
-};
+  };
+  const handleClose = () => {
+    setOpen(false);
+    console.log(modal_data, "modal data")
+  };
 
   const columns = [
-    { field: "order_id", headerName: "order_id", width: 100 },
-    { field: "client_id", headerName: "client_id", width: 100 },
+    { field: "order_id", headerName: "order_id", width: 150 },
+    { field: "client_id", headerName: "client_id", width: 150 },
     { field: "first_name", headerName: "first_name", width: 120 },
-    { field: "surname", headerName: "surname", width: 100 },
+    { field: "surname", headerName: "surname", width: 150 },
     { field: "postcode", headerName: "postcode", width: 100 },
-    { field: "mobile", headerName: "mobile", width: 120 },
+    { field: "mobile", headerName: "mobile", width: 150 },
     { field: "email", headerName: "email", width: 100 },
-     { field: "products", headerName: "product ct", width: 200 },
+    { field: "products", headerName: "product ct", width: 200 },
 
-     {
+    {
       field: "details",
       headerName: "More",
       width: 120,
@@ -84,18 +84,18 @@ const handleClose = () => {
         </>
       ),
     },
-  
+
   ];
 
 
 
   const rows = alllist?.map((row) => ({
-    order_id:row.order_id,
+    order_id: row.order_id,
     client_id: row.client_id,
     first_name: row.first_name,
     surname: row.surname,
     postcode: row.postcode,
-    products: row.products.products_data?.map((e,index)=>e.code),
+    products: row.products.products_data?.map((e, index) => e.code),
     mobile: row.mobile,
     email: row.email,
   }));
@@ -103,52 +103,53 @@ const handleClose = () => {
 
   return (
     <div>
-            <Modal
+      <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-      
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-             Details
-            </Typography>
-         {modal_data?
-         <>
 
-         <h6>Products</h6>
-{modal_data.products.products_data.map((e)=>  <ul>
-  <li>{e.CT_number}</li>
-</ul> )}
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Details
+          </Typography>
+          {modal_data ?
+            <>
+
+              <h6>Products</h6>
+              {modal_data.products.products_data.map((e) => <ul>
+                <li>{e.CT_number}</li>
+              </ul>)}
 
 
-         </>
-          :null }  
+            </>
+            : null}
           <br />
 
           <Button style={{ color: "#000" }} onClick={handleClose}>
             OK
           </Button>
 
- 
+
         </Box>
       </Modal>
 
       <Sidebar />
-   <center> <h4 style={{margin:20}}>Orders</h4></center>  
+      {/* <center> <h4 style={{ margin: 20 }}>Orders</h4></center> */}
 
-{alllist?
-      <DataGrid
-        style={{ height: "28rem", width: "100%",margin:10 }}
-        rows={rows}
-        columns={columns}
-        pageSize={20}
-        getRowId={(row) => row.order_id}
-        rowsPerPageOptions={[20]}
-        components={{ Toolbar: GridToolbar }}
-      />:null}
-{/* <button onClick={console.log(alllist)} >click to console</button> */}
+      {alllist ?
+        <DataGrid
+          style={{ height: "100vh", width: "100%"}}
+          rows={rows}
+          columns={columns}
+          pageSize={20}
+          getRowId={(row) => row.order_id}
+          rowsPerPageOptions={[20]}
+          components={{ Toolbar: GridToolbar }}
+          density="compact"
+        /> : null}
+      {/* <button onClick={console.log(alllist)} >click to console</button> */}
     </div>
   )
 }

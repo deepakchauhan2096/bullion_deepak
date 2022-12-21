@@ -6,200 +6,177 @@ const OrderToSupplier = () => {
         <>
             <Sidebar />
 
-            <div className='container-fluid' style={{ backgroundColor: "whitesmoke" }}>
-                <div className="row">
-                    <p className='bg-secondary text-white py-2'>Order To Supplier</p>
-                </div>
-                <form className='p-4' >
-                    <div className="container" style={{ backgroundColor: "whitesmoke" }}>
-                        <div className="row">
-                            <div className="col-lg-6 py-2">
-                                <div className="row g-0">
-                                    <div className="col-md-6">
-                                        <p className='form-label'>Order ID</p>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <select class="form-control rounded-0" id="exampleFormControlSelect1">
+         
+                <div className='' style={{ height: "100vh", backgroundColor: "", paddingLeft: "0px", paddingRight: "0" }}>
+                    <div className="container g-0" style={{ backgroundColor: "beige", height: "100%", position: "relative" }}>
+
+                        <table className="table-border" style={{ backgroundColor: "white" }}>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" colSpan={2}>
+                                        <div
+                                            style={{ backgroundColor: "beige", borderBottom: "0", accentColor: "red" }}
+                                        >
+                                            <input
+                                                defaultChecked="checked"
+                                                style={{
+                                                    height: "15px",
+                                                    width: "15px",
+                                                    margin: "6px"
+                                                }}
+                                                type="radio"
+                                                name="order"
+                                                value="Inquiry"
+                                            />
+                                            <label style={{ fontSize: 17, padding: "0 2px" }}>New</label>
+                                            <input
+                                                style={{
+                                                    height: "15px",
+                                                    width: "15px",
+                                                    margin: "6px"
+                                                }}
+                                                type="radio"
+                                                name="order"
+                                                value="Order"
+                                            />
+                                            <label style={{ fontSize: 17, padding: "0 2px" }}>Old Update</label>
+                                        </div>
+
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th scope="row" className='form-label-padding'>Order ID</th>
+                                    <td>
+                                        <select className="input-fields" id="exampleFormControlSelect1">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select></td>
+                                </tr>
+                                <tr>
+                                    <th className='form-label-padding'>Order By</th>
+                                    <td>
+                                        <select className="input-fields" id="exampleFormControlSelect1">
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
                                             <option>4</option>
                                             <option>5</option>
                                         </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-6 py-2">
-                                <div className="row g-0">
-                                    <div className="col-md-6">
-                                        <p className='form-label'>Order Date</p>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <input type="date" class="form-control rounded-0" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-6 py-2">
-                                <div className="row g-0">
-                                    <div className="col-md-6">
-                                        <p className='form-label'>Supplier Id </p>
-                                    </div>
-                                    <div className="col-md-6">
-
-                                        <select class="form-control rounded-0" id="exampleFormControlSelect1">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th className='form-label-padding' scope="row">Order Date</th>
+                                    <td><input type="date" class="input-fields" /></td>
+                                </tr>
+                                <tr>
+                                    <th className='form-label-padding'>Qty</th>
+                                    <td><input type="text" class="input-fields" /></td>
+                                </tr>
+                                <tr>
+                                    <th className='form-label-padding' scope="row">Supplier Id</th>
+                                    <td colspan="">
+                                        <select className="input-fields" id="exampleFormControlSelect1">
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
                                             <option>4</option>
                                             <option>5</option>
                                         </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-6 py-2">
-                                <div className="row g-0">
-                                    <div className="col-md-6">
-                                        <p className='form-label'>Item Id Supplier </p>
-                                    </div>
-                                    <div className="col-md-6">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th className='form-label-padding'>Order Method </th>
+                                    <td><input type="number" class="input-fields" /></td>
+                                </tr>
 
-                                        <select class="form-control rounded-0" id="exampleFormControlSelect1">
+                                <tr>
+                                    <th className='form-label-padding' scope="row">Item Id Supplier </th>
+                                    <td colspan="">
+                                        <select className="input-fields" id="exampleFormControlSelect1">
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
                                             <option>4</option>
                                             <option>5</option>
                                         </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-6 py-2">
-                                <div className="row g-0">
-                                    <div className="col-md-6">
-                                        <p className='form-label'>Order By </p>
-                                    </div>
-                                    <div className="col-md-6">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th className='form-label-padding'>Expected Price</th>
+                                    <td><input type="number" class="input-fields" /></td>
+                                </tr>
 
-                                        <select class="form-control rounded-0" id="exampleFormControlSelect1">
+                                <tr>
+                                    <th className='form-label-padding' scope="row">Purpose of Order  </th>
+                                    <td colspan="">
+                                        <select className="input-fields" id="exampleFormControlSelect1">
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
                                             <option>4</option>
                                             <option>5</option>
                                         </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-6 py-2">
-                                <div className="row g-0">
-                                    <div className="col-md-6">
-                                        <p className='form-label'>Qty </p>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <input type="text" class="form-control rounded-0"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-6 py-2">
-                                <div className="row g-0">
-                                    <div className="col-md-6">
-                                        <p className='form-label'>Order Method </p>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <input type="number" class="form-control rounded-0"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-6 py-2">
-                                <div className="row g-0">
-                                    <div className="col-md-6">
-                                        <p className='form-label'>Expected Price </p>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <input type="number" class="form-control rounded-0"/>
-                                    </div>
-                                </div>
-                            </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th className='form-label-padding'>Actual Price</th>
+                                    <td>
+                                        <input type="text" className="input-fields" />
+                                    </td>
+                                </tr>
 
-                            <div className="col-lg-6 py-2">
-                                <div className="row g-0">
-                                    <div className="col-md-6">
-                                        <p className='form-label'>Purpose of Order </p>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <select class="form-control rounded-0" id="exampleFormControlSelect1">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-6 py-2">
-                                <div className="row g-0">
-                                    <div className="col-md-6">
-                                        <p className='form-label'>Actual Price </p>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <input type="text" class="form-control rounded-0"/>
-                                    </div>
-                                </div>
-                            </div>
+                                <tr>
+                                    <th className='form-label-padding' scope="row">STOCK Order ID  </th>
+                                    <td colspan="">
+                                        <input type="text" className="input-fields" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th className='form-label-padding' >Current Rate </th>
+                                    <td>
+                                        <input type="text" className="input-fields" />
+                                    </td>
+                                </tr>
 
-                            <div className="col-lg-6 py-2">
-                                <div className="row g-0">
-                                    <div className="col-md-6">
-                                        <p className='form-label'>STOCK Order ID </p>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <input type="text" class="form-control rounded-0"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-6 py-2">
-                                <div className="row g-0">
-                                    <div className="col-md-6">
-                                        <p className='form-label'>Current Rate </p>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <input type="text" class="form-control rounded-0" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-6 py-2">
-                                <div className="row g-0">
-                                    <div className="col-md-6">
-                                        <p className='form-label'>Expected Date of Delivery </p>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <input type="number" class="form-control rounded-0" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-6 py-2">
-                                <div className="row g-0">
-                                    <div className="col-md-6">
-                                        <p className='form-label'>Customer Order ID </p>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <input type="number" class="form-control rounded-0" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                <tr>
+                                    <th className='form-label-padding' scope="row">Expected Date of Delivery  </th>
+                                    <td colspan="">
+                                        <input type="text" className="input-fields" />
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                </tr>
+                                <tr>
+                                    <th className='form-label-padding' scope="row">Customer Order ID </th>
+                                    <td colspan="3">
+                                        <input type="number" class="input-fields" />
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
 
                         <div className="botton-end">
                             <div className="col-12 form-rows">
-                                <button type="submit" class="btn btn-secondary rounded-0 px-4">Add</button> <button type="submit" class="btn btn-secondary rounded-0 px-3">Update</button>
+                                <button type="submit"
+                                    style={{ marginTop: 20, marginLeft: 0, background: "green", color: "#fff", border: 0, padding: "4px 10px" }}
+                                >
+                                    Add
+                                </button>
+                                <button
+                                    style={{ marginTop: 20, marginLeft: 4, background: "#696969", color: "#fff", border: 0, padding: "4px 10px" }}
+                                    type="submit" >
+                                    Update
+                                </button>
                             </div>
                         </div>
 
                     </div>
-
-                </form>
-            </div>
+                </div>
         </>
     )
 }

@@ -6,9 +6,7 @@ import React, {
   forwardRef,
   useImperativeHandle,
 } from "react";
-
 import { dataContext } from "../helpers/context";
-
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -18,7 +16,6 @@ import TextField from "@mui/material/TextField";
 import { useLocation, useNavigate } from "react-router-dom";
 import CircularProgress from "@mui/material/CircularProgress";
 import Backdrop from "@mui/material/Backdrop";
-
 import { Helmet } from "react-helmet";
 import { authentication } from "../firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
@@ -601,12 +598,7 @@ setImages(formData.images)
       </Helmet>
 
       {/* <Sidebar /> */}
-      <div className="container-fluid">
-        <div className="row">
-          {/* <p className="bg-secondary text-white py-2">Plain J Invoice</p> */}
-          {/* <button onClick={()=> console.log(address,"address")} style={{width:"15%"}} >click</button> */}
-        </div>
-
+      <div className="">
         {/* modal for phone OTP */}
         <Modal
           open={open_otp}
@@ -779,30 +771,31 @@ setImages(formData.images)
               setOrder_type(e.target.value);
             }}
             style={{backgroundColor: "#f9f9ef",border:"0.5px solid gray",borderBottom:"0", accentColor:"red"}}
+
           >
             <input
               defaultChecked="checked"
               style={{
-                height: "20px",
-                width: "40px",
+                height: "15px",
+                width: "15px",
+                margin: "6px"
               }}
               type="radio"
               name="order"
               value="Inquiry"
             />
-            <label style={{ fontSize: 20 }}> Inquiry</label>
-            <br />
-            <hr style={{ margin: 3, padding: 0 }}></hr>
+            <label style={{ fontSize: 17, padding:"0 2px"}}> Inquiry</label>
             <input
               style={{
-                height: "20px",
-                width: "40px",
+                height: "15px",
+                width: "15px",
+                margin: "6px"
               }}
               type="radio"
               name="order"
               value="Order"
             />
-            <label style={{ fontSize: 20 }}> Order</label>
+            <label style={{ fontSize: 17, padding:"0 2px"}}> Order</label>
           </div>
 
           <div className="">
@@ -1144,7 +1137,7 @@ setImages(formData.images)
                             }
                           }}
                         />{" "}
-                        {formData.mobile.length >= 5 ? (
+                        {formData.mobile.length >= 13 ? (
                           <button className="button-input" onClick={Send_Otp}>Send OTP</button>
                         ) : null}
                       </td>
@@ -1259,7 +1252,9 @@ setImages(formData.images)
             </div>
             <br />
           </div>
-          {order_type == "Order" ? (
+        </div>
+
+        {order_type == "Order" ? (
                     <div 
                     
                       style={{
@@ -1372,7 +1367,7 @@ setImages(formData.images)
                       ) : null}
                     </div>
                   ) : null}
-        </div>
+                  
 
         {/* {FormValue ? (
             <DataGrid

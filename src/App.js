@@ -21,6 +21,8 @@ import View_more from "./components/View_more";
 import Order_pdf from "./components/Order_pdf";
 import Sale_Reciept from "./components/Sale_Reciept";
 import PDF_Creation_Sale_Reciept from './components/PDF_Creation_Sale_Reciept'
+import PDF_Creation_Client from "./components/PDF_Creation_Client";
+import ClientPurchase from "./components/ClientPurchase";
 
 const drawerWidth = 280;
 
@@ -33,7 +35,7 @@ const drawerWidth = 280;
 
 // ***resize code***
   const Section = styled.section`
-  margin-top:64px;
+  margin-top:0;
   position:relative;
   height:calc(100vh - 64px);
   padding-left:${drawerWidth}px;
@@ -67,7 +69,9 @@ const drawerWidth = 280;
         <Route path="/View_more" element={<View_more/>}/>
         <Route path="/Order_pdf" element={ <Order_pdf/> }/>
         <Route path="/Sale_Reciept" element={ <Sale_Reciept/> }/>
+        <Route path="/clientpurchase" element={ <ClientPurchase/> }/>
         <Route path="/PDF_Creation_Sale_Reciept" element={<PDF_Creation_Sale_Reciept />} />
+        <Route path="/PDF_Creation_Client" element={ <PDF_Creation_Client /> }/>
 
       </Routes>
     </Router>

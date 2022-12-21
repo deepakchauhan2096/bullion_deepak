@@ -4,9 +4,6 @@ import React, { useState, useEffect } from "react";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import Sidebar from "./Sidebar";
 import { Divider } from "@mui/material";
-import zIndex from "@mui/material/styles/zIndex";
-import { display } from "@mui/system";
-import { Transform, Translate } from "@mui/icons-material";
 
 const NewCombination = () => {
   const [data2, setData] = useState();
@@ -14,7 +11,6 @@ const NewCombination = () => {
   const [show, setShow] = useState(false);
   const [hit, setHit] = useState(false);
   const [price, setPrice] = useState();
-  const [ShowHide, setShowHide] = useState(true)
   const [storePriceFromAPI, setStorePriceFromAPI] = useState();
   let show_loading;
   let mj_sell_rate;
@@ -40,7 +36,6 @@ const NewCombination = () => {
 
   const getPriceFromAPI = () => {
     // setLoader(true)
-    setShowHide(true)
     fetch(`http://${process.env.REACT_APP_SERVER_IP}:4000/liveprice`)
       .then((res) => res.json())
       .then((data) => {
@@ -87,7 +82,7 @@ const NewCombination = () => {
   };
 
   const Select_vendor = (vendor_name) => {
-
+   
     console.log(vendor_name, "vendor");
     if (vendor_name == "BV") {
       get_vendor_data("best_value_all");
@@ -139,83 +134,69 @@ const NewCombination = () => {
     weight: row.weight,
   }));
 
-
-
-  const onoff = () => {
-    setShowHide(s => !s)
-
-  }
-
   return (
     <>
-      <Sidebar />
-      <div style={{
-        margin: "",
-        justifyContent: "flex-end",
-        zIndex: "2",
-        display: `${ShowHide ? "flex" : "none"}`
-      }} >
-        {storePriceFromAPI ? <table className="table-modal">
-          <thead>
-
-            <tr>
-              <th style={{ fontSize: "13px", padding: "0px 20px", textAlign: "center" }}></th>
-              {storePriceFromAPI?.map((e) => {
-                return <th>
-                  <p style={{ fontSize: "13px", margin: "0", textAlign: "center" }}>{e.metal}</p>
-                </th>
-              })}
-
-
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style={{ fontSize: "13px", margin: "0", padding: "0px 20px", textAlign: "center" }}>Bid</td>
-
-              {storePriceFromAPI?.map((e) => {
-                return <td style={{ background: "#b6f2d5" }}>
-                  <p style={{ fontSize: "13px", margin: "0", padding: "0px 20px", textAlign: "center" }}>{e.currency.GBP.bid}</p>
-                </td>
-              })}
-            </tr>
-            <tr>
-              <td style={{ fontSize: "13px", margin: "0", padding: "0px 20px", textAlign: "center" }}>Offer</td>
-
-              {storePriceFromAPI?.map((e) => {
-                return <td style={{ background: "#e6a3a3" }}>
-                  <p style={{ fontSize: "13px", margin: "0", padding: "0px 20px", textAlign: "center" }}>{e.currency.GBP.offer}</p>
-                </td>
-              })}
-            </tr>
-          </tbody>
-        </table> :
-          <div style={{ textAlign: "center", display: "flex", margin: "0 auto" }}>
-            please wait...
-          </div>}
-
-      </div>
-      {/* <DragModal /> */}
-
-      <div style={{ position: "relative" }}>
+      <div style={{ padding: 20 }}>
+        {" "}
+        <Sidebar />
         <button
-          className="fixed-button-modal-arrow"
-          onClick={onoff}
-          title="Full Screen"
-        >
-          <i className="fa fa-arrow-up" aria-hidden="true"></i>
-        </button>
-        <input
-          type="button"
-          className="fixed-button-modal-bid"
+          style={{
+            padding: 10,
+            fontSize: 15,
+            width: 120,
+            background: "#2F82D6",
+            borderRadius: 12,
+            margin: 10,
+            color: "#fff",
+            fontFamily: "roboto",
+            border: "none",
+          }}
           onClick={getPriceFromAPI}
-          title="Update Live Price"
-          value='Fetch live price'
-        />
+        >
+          Fetch live price
+        </button>
+        <div style={{ display: "flex", float: "right", padding: 10 }}>
+          <table>
+            <thead>
+              <tr>
+                <th style={{ fontSize: "13px", padding: "2%" }}></th>
+                {storePriceFromAPI?.map((e) => (
+                  <th>
+                    <p style={{ fontSize: "13px", padding: "2%" }}>{e.metal}</p>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style={{ fontSize: "13px", padding: "3%" }}>bid</td>
 
-        <div style={{ position: "absolute", outline: "none" }} className="fixed-button-bid">
-          <label>Choose a Vendor :&nbsp; &nbsp;</label>
-          <select onChange={(e) => { Select_vendor(e.target.value); setShow(true) }} title="Please Select A Vender">
+                {storePriceFromAPI?.map((e) => (
+                  <td>
+                    <p style={{ fontSize: "13px", paddingLeft: "10%" }}>
+                      {e.currency.GBP.bid}
+                    </p>
+                  </td>
+                ))}
+              </tr>
+              <tr>
+                <td style={{ fontSize: "13px", padding: "3%" }}>Offer</td>
+
+                {storePriceFromAPI?.map((e) => (
+                  <td>
+                    <p style={{ fontSize: "13px", paddingLeft: "10%" }}>
+                      {e.currency.GBP.offer}
+                    </p>
+                  </td>
+                ))}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        {/* select vendor div */}
+        <div>
+          <label>Choose a Vendor :</label>
+          <select onChange={(e) => {Select_vendor(e.target.value); setShow(true)}}>
             <option selected value="ps">
               Plese select
             </option>
@@ -225,77 +206,30 @@ const NewCombination = () => {
             <option value="vSuisse">V Suisse</option>
           </select>
         </div>
-
-        {data2 ? (
-          <DataGrid
-            style={{ height: `${ShowHide ? "92.2413793103vh" : "100vh"}`, width: "100%", position: "absolute", top: "0" }}
-            rows={rows}
-            columns={columns}
-            pageSize={20}
-            getRowId={(row) => row.id}
-            rowsPerPageOptions={[20]}
-            components={{ Toolbar: GridToolbar }}
-            density="compact"
-          />
-        ) : (
-          <div>
-            {!show ? (
-              <div style={{
-                color: "GrayText",
-                background: "whitesmoke",
-                width: "100%",
-                height: `${ShowHide ? "92.2413793103vh" : "100vh"}`,
-              }}>
-                <p
-                  style={{
-                    padding: "",
-                    color: "GrayText",
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    textAlign: "center",
-                    // Transform: "translate(-50%,-50%)",
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                    left: 0,
-                    right: 0,
-                    textAlign: "center"
-
-                  }}>
-                  Please select a vendor !
-                </p>
-              </div>
-            ) : (
-              <div style={{
-                color: "GrayText",
-                background: "whitesmoke",
-                width: "100%",
-                height: `${ShowHide ? "92.2413793103vh" : "100vh"}`,
-              }}>
-              <p
-                style={{
-                  padding: "",
-                  color: "#3596d9",
-                  position: "absolute",
-                  top: "50%",
-                  left: "50%",
-                  textAlign: "center",
-                  // Transform: "translate(-50%,-50%)",
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                  left: 0,
-                  right: 0,
-                  textAlign: "center"
-                }}>
-                Loading...
-              </p>
-              </div>
-            )}
-          </div>
-        )}
+        <div>
+          {data2 ? (
+            <DataGrid
+              style={{ height: "28rem", width: "100%" }}
+              rows={rows}
+              columns={columns}
+              pageSize={20}
+              getRowId={(row) => row.id}
+              rowsPerPageOptions={[20]}
+              components={{ Toolbar: GridToolbar }}
+            />
+          ) : (
+            <center>
+              {!show ? (
+                <h4 style={{ margin: "10%",color:"GrayText" }}>Please select a vendor !</h4>
+              ) : (
+                <h4 style={{ margin: "10%" , color:"blueviolet"}}>Loading...</h4>
+              )}
+            </center>
+          )}
+        </div>
       </div>
     </>
   );
 };
 
-export default NewCombination;
+export default NewCombination;

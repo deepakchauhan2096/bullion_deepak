@@ -2,23 +2,17 @@ import React from 'react';
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import { Dashboard, Dvr, JoinFull, LeakAdd, ManageSearch, PersonAdd, PostAdd, Store  } from '@mui/icons-material';
 import styled from 'styled-components'
 import { ListItem } from '@mui/material';
-import ReceiptIcon from '@mui/icons-material/Receipt';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import AddNewItems from './AddNewItems';
-import AddSuppliers from './Addsuppliers';
-import DashboardIcon from '@mui/icons-material/Dashboard';
+import logo from "../imgs/muljis_logo.png"
+import AirplaneTicketIcon from '@mui/icons-material/AirplaneTicket';
+import CheckIcon from '@mui/icons-material/Check';
 
 
 
@@ -43,11 +37,19 @@ function Sidebar(props) {
     }
     `
 
+    const Profile = styled.div`{
+        background-color:beige;
+        font-size:25px;
+        color:grey;
+        position:relative;
+    }
+    `
+
 
 
     const { window } = props;
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [selector, setSelector] = useState('');
+    const [selector, setSelector] = useState(0);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -55,50 +57,68 @@ function Sidebar(props) {
 
     const handleSelect = (event, index) => {
         setSelector(index)
+       
     }
 
-
+     console.log(selector, "selector")
 
 
     const drawerList = (
         <div>
-            <List>
-                <ListItem >
+            <Profile>
+                <ListItem>
+                    <img src={logo}  height={50} width={60} />
+                    <p style={{paddingTop:"0", position:"absolute",top:"28%",left:"30%", color:"#bd9334"}}>Bullion</p>
+                </ListItem>
+            </Profile>
+            <List className={selector == 1 ? "selector_color" : ""} onClick={(e, index) => handleSelect(e, 1)}>
+                <ListItem onClick={(e, index) => handleSelect(e, 1)}>
                     <Dashboard />
-                    <Links to='/home' >Dashboard</Links>
+                    <Links to='/home'>Dashboard</Links>
                 </ListItem>
             </List>
             <Divider />
-       {/* this link to be uncommented later if needed for vendor select feature */}
-            {/* <List>
+            <List className={selector == 2 ? "selector_color" : ""} onClick={(e, index) => handleSelect(e, 2)}>
                 <ListItem>
                     <JoinFull />
-                    <Links to='/' >Products</Links>
+                    <Links to='/'>Products</Links>
                 </ListItem>
             </List>
-            <Divider /> */}
+            <Divider />
             <List>
                 <ListItem>
                     <LeakAdd />
-                    <Links to='/Bullion_Sold_Product' >Orders</Links>
+                    <Links to='/Bullion_Sold_Product'>Orders</Links>
                 </ListItem>
             </List>
             <Divider />
             <List>
                 <ListItem>
                     <PersonAdd />
-                 
-                    <Links to='/userformaddsupplier' >Add Supplier</Links>
+                    <Links to='/userformaddsupplier'>Add Supplier</Links>
                 </ListItem>
             </List>
             <Divider />
             <List>
                 <ListItem >
                     <PersonOutlineIcon />
-                    <Links to='/Client_balance' >Client Balance</Links>
+                    <Links to='/Client_balance'>Client Balance</Links>
                 </ListItem>
             </List>
             <Divider />
+            <List>
+                <ListItem >
+                    <AirplaneTicketIcon />
+                    <Links to='/ordertosupplier'>Order To Supplier</Links>
+                </ListItem>
+            </List>
+            <Divider />
+            <List>
+                <ListItem >
+                    <CheckIcon />
+                    <Links to='/clientpurchase'>Client purchase</Links>
+                </ListItem>
+            </List>
             <List>
                 <ListItem>
                     <PostAdd />
@@ -107,46 +127,6 @@ function Sidebar(props) {
                 </ListItem>
             </List>
             <Divider />
-            {/* <List>
-                <ListItem>
-                    <ManageSearch />
-                    <Links to='/inquiry' >Inquiry</Links>
-                </ListItem>
-            </List>
-            <Divider /> 
-            <List>
-                <ListItem>
-                    <Dvr /><Links to='/ordertosupplier' >Order To Supplier</Links>
-                </ListItem>
-            </List>
-            <Divider />
-            <List>
-                <ListItem>
-                    <Store /><Links to='/purchaseordernew' >Purchase Order New</Links>
-                </ListItem>
-            </List>
-            <Divider />
-            <List>
-                <ListItem >
-                    <ReceiptIcon />
-                    <Links to='/BullionInvoice' >Invoice</Links>
-                </ListItem>
-            </List>
-            <Divider />
-            <List>
-                <ListItem >
-                    <ReceiptIcon />
-                    <Links to='/BullionReciept' >Receipt</Links>
-                </ListItem>
-            </List>
-            <Divider />
-            <List>
-                <ListItem >
-                    <PersonOutlineIcon />
-                    <Links to='/clientdata' >Client</Links>
-                </ListItem>
-            </List>
-            <Divider />*/}
         </div >
     );
 
@@ -155,7 +135,7 @@ function Sidebar(props) {
     return (
         <>
             <CssBaseline />
-            <AppBar
+            {/* <AppBar
                 position="fixed"
                 sx={{
                     width: { sm: `100%` },
@@ -181,7 +161,7 @@ function Sidebar(props) {
                         Bullion Dashboard
                     </Typography>
                 </Toolbar>
-            </AppBar>
+            </AppBar> */}
             <Box sx={{ display: 'flex', }}>
                 <Box
                     component="nav"
@@ -210,7 +190,7 @@ function Sidebar(props) {
                         variant="permanent"
                         sx={{
                             display: { xs: 'none', sm: 'block' },
-                            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, marginTop: "64px", zIndex: "45",overflowY:"scroll",height:"88vh" },
+                            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, marginTop: "", zIndex: "45",overflowY:"auto",height:"100vh" },
                         }}
                         open
                     >

@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useContext,useRef } from "react";
+import React, { useEffect, useState, useContext, useRef } from "react";
 import { dataContext } from "../helpers/context";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import Sidebar from "./Sidebar";
 import { useNavigate } from "react-router-dom";
 import Bullion_invoice from "./Bullion_invoice";
-import Button from "@mui/material/Button";
+
 
 
 
@@ -19,10 +19,10 @@ const Dashboard = () => {
   const { setFormValues } = useContext(dataContext);
   const { formValues } = useContext(dataContext);
   const [body, setBody] = useState([]);
-const [temp_bm, setTemp_bm]=useState()
-const [temp_pamp, setTemp_pamp]=useState()
-const [temp_bvLink, setTemp_bvLink]=useState()
-const [temp_bvFor, setTemp_bvFor]=useState()
+  const [temp_bm, setTemp_bm] = useState()
+  const [temp_pamp, setTemp_pamp] = useState()
+  const [temp_bvLink, setTemp_bvLink] = useState()
+  const [temp_bvFor, setTemp_bvFor] = useState()
 
 
   const childRef = useRef();
@@ -34,7 +34,7 @@ const [temp_bvFor, setTemp_bvFor]=useState()
   let temp_bvLink_for_state;
   let temp_bvFor_state
 
-let sortedallist=[] ;
+  let sortedallist = [];
 
 
 
@@ -89,8 +89,7 @@ let sortedallist=[] ;
   };
 
   const insertObject = (jsonbody) => {
-    console.log(jsonbody)
-    finalArray = [...finalArray, jsonbody,jsonbody.quant=1];
+    finalArray = [...finalArray, jsonbody, jsonbody.quant = 1];
     setBody((prev) => {
       return [...prev, jsonbody];
     });
@@ -98,7 +97,7 @@ let sortedallist=[] ;
     console.log(body, "state value");
     setShow(false)
   };
-// function to add product to tsble 
+  // function to add product to tsble 
   const change_value = async () => {
 
 
@@ -124,28 +123,28 @@ let sortedallist=[] ;
     }
 
   };
-// This function calculate the total price from eact supplier and quantity. 
-  const calculate_total=()=>{
-    msgTotal = body?.reduce(function(prev, cur) {
-      return prev + cur.bbp_o_competitor_pamp_value*1 * (cur.quant*1);
+  // This function calculate the total price from eact supplier and quantity. 
+  const calculate_total = () => {
+    msgTotal = body?.reduce(function (prev, cur) {
+      return prev + cur.bbp_o_competitor_pamp_value * 1 * (cur.quant * 1);
     }, 0);
-    pamp_for_state = body?.reduce(function(prev, cur) {
-      return prev + cur.bbp_o_competitor_best_value_value*1 * (cur.quant*1);
+    pamp_for_state = body?.reduce(function (prev, cur) {
+      return prev + cur.bbp_o_competitor_best_value_value * 1 * (cur.quant * 1);
     }, 0);
-    temp_bvLink_for_state = body?.reduce(function(prev, cur) {
-      return prev + cur.bbp_o_competitor_v_suisse_value*1 * (cur.quant*1);
+    temp_bvLink_for_state = body?.reduce(function (prev, cur) {
+      return prev + cur.bbp_o_competitor_v_suisse_value * 1 * (cur.quant * 1);
     }, 0);
-    temp_bvFor_state = body?.reduce(function(prev, cur) {
-      return prev + cur.bbp_o_competitor_metalor_value*1 * (cur.quant*1);
+    temp_bvFor_state = body?.reduce(function (prev, cur) {
+      return prev + cur.bbp_o_competitor_metalor_value * 1 * (cur.quant * 1);
     }, 0);
     setTemp_bvFor(temp_bvFor_state)
     setTemp_bvLink(temp_bvLink_for_state)
     setTemp_pamp(pamp_for_state)
     setTemp_bm(msgTotal)
-console.log(msgTotal,"bm_minted msgTotal")
-console.log(pamp_for_state,"pamp_for_state ")
-console.log(temp_bvLink_for_state,"temp_bvLink_for_state ")
-console.log(temp_bvFor_state," temp_bvFor_state")
+    console.log(msgTotal, "bm_minted msgTotal")
+    console.log(pamp_for_state, "pamp_for_state ")
+    console.log(temp_bvLink_for_state, "temp_bvLink_for_state ")
+    console.log(temp_bvFor_state, " temp_bvFor_state")
 
   }
 
@@ -156,7 +155,7 @@ console.log(temp_bvFor_state," temp_bvFor_state")
       }
       return obj;
     });
-  setBody(newArr)
+    setBody(newArr)
     console.log(newArr, "newarr");
   };
 
@@ -176,7 +175,7 @@ console.log(temp_bvFor_state," temp_bvFor_state")
             background: "#ff3d3d",
             color: "#fff",
             borderRadius: 10,
-            border: "none",
+            border: "",
           }}
           onClick={() => {
             delete_element(cellValues.row);
@@ -248,7 +247,7 @@ console.log(temp_bvFor_state," temp_bvFor_state")
     bbp_o_competitor_v_suisse_value: row.bbp_o_competitor_v_suisse_value,
     bbp_o_competitor_metalor_value: row.bbp_o_competitor_metalor_value,
     bbp_pamp_formula_value: row.bbp_pamp_formula_value,
-    quant:row.quant
+    quant: row.quant
   }));
 
   let color;
@@ -261,110 +260,113 @@ console.log(temp_bvFor_state," temp_bvFor_state")
     color2 = "#e6e6e6";
   }
   return (
-    <div style={{ padding: 20 }}>
+    <div>
       {/* <Navbar /> */}
       <Sidebar />
       <Bullion_invoice data={body} agreePrice={agreePrice} ref={childRef} />
-      {ispopular ? (
-        <select
-        style={{
-          width: "200px",
-          color: "black",
-          height: "26px",
-          fontSize: "14px",
-          border: "1.5px solid #267ED4",
-          padding: 3,
-          margin: "0px 0px",
-        }}
-          onChange={(e) => (value2 = e.target.value)}
+      <section style={{ background: "beige" }}>
+        {ispopular ? (
+          <select
+            style={{
+              width: "200px",
+              color: "black",
+              height: "26px",
+              fontSize: "14px",
+              border: "1.5px solid #267ED4",
+              padding: 3,
+              margin: "0px 0px",
+            }}
+            onChange={(e) => (value2 = e.target.value)}
           // className="select-option"
-        >
-          <option selected disabled>
-            Popular Option
-          </option>
-          {popularlist?.map((value) => (
-            <>
-              <option value={value.product_code}>{value.product_code}</option>
-            </>
-          ))}
-        </select>
-      ) : (
-        <select
-        style={{
-          width: "200px",
-          color: "black",
-          height: "26px",
-          fontSize: "14px",
-          border: "1.5px solid #267ED4",
-          padding: 3,
-          margin: "0px 0px",
-        }}
-          onChange={(e) => (value2 = e.target.value)}
-          className="select-option"
-        >
-          <option selected disabled>
-            All Option
-          </option>
-          { alllist?.map((value) => (
-            <>
-              <option value={value.product_code}>{value.product_code}</option>
-            </>
-          ))}
-        </select>
-      )}
+          >
+            <option selected disabled>
+              Popular Option
+            </option>
+            {popularlist?.map((value) => (
+              <>
+                <option value={value.product_code}>{value.product_code}</option>
+              </>
+            ))}
+          </select>
+        ) : (
+          <select
+            style={{
+              width: "200px",
+              color: "black",
+              height: "26px",
+              fontSize: "14px",
+              border: "1.5px solid #267ED4",
+              padding: 3,
+              margin: "0px 0px",
+            }}
+            onChange={(e) => (value2 = e.target.value)}
+            className="select-option"
+          >
+            <option selected disabled>
+              All Option
+            </option>
+            {alllist?.map((value) => (
+              <>
+                <option value={value.product_code}>{value.product_code}</option>
+              </>
+            ))}
+          </select>
+        )}
 
-      <button
-        onClick={change_value}
-        style={{
-          height: "26px",
-          color: "#fff",
-          background: "#267ED4",
-          border: "none",
-        }}
-      >
-        Select
-      </button>
 
-      <button
-        onClick={() => setIspopular(true)}
-        style={{
-          padding: 2,
-          color: "#000",
-          border: "none",
-          background: color2,
-          marginLeft: "1%",
-          width: "8%",
-          paddingBottom: 1
-        }}
-      >
-        Popular
-      </button>
-      <button
-        onClick={() => setIspopular(false)}
-        style={{
-          padding: 2,
-          color: "#000",
-          border: "none",
-          background: color,
-          width: "8%",
-          paddingBottom: 1
-        }}
-      >
-        All
-      </button>
-      <input
-        placeholder="Price"
-        style={{
-          width: "10%",
-          marginLeft: "1%",
-          padding: "1px",
-          borderRadius: "0px",
-          outline:"none",
-          border: "1px solid #000",
-          paddingBottom: 0
-        }}
-        onChange={(e) => setAgreePrice(e.target.value)}
-      />
+        <button
+          onClick={change_value}
+          style={{
+            height: "26px",
+            color: "#fff",
+            background: "#267ED4",
+            border: "none",
+          }}
+        >
+          Select
+        </button>
+
+        <button
+          onClick={() => setIspopular(true)}
+          style={{
+            padding: 2,
+            color: "#000",
+            border: "none",
+            background: color2,
+            marginLeft: "1%",
+            width: "8%",
+            paddingBottom: 1
+          }}
+        >
+          Popular
+        </button>
+        <button
+          onClick={() => setIspopular(false)}
+          style={{
+            padding: 2,
+            color: "#000",
+            border: "none",
+            background: color,
+            width: "8%",
+            paddingBottom: 1
+          }}
+        >
+          All
+        </button>
+        <input
+          placeholder="Price"
+          style={{
+            width: "10%",
+            marginLeft: "1%",
+            padding: "1px",
+            borderRadius: "0px",
+            outline: "none",
+            border: "0.5px solid #80808050",
+            paddingBottom: 0
+          }}
+          onChange={(e) => setAgreePrice(e.target.value)}
+        />
+      </section>
       {/* <button
         style={{
           border: "none",
@@ -381,20 +383,20 @@ console.log(temp_bvFor_state," temp_bvFor_state")
       </button> */}
       {body ? (
         <>
-        {!show? <div> <DataGrid
-          style={{ height: "28rem", width: "100%" }}
-          rows={rows}
-          columns={columns}
-          pageSize={20}
-          getRowId={(row) => row.code}
-          rowsPerPageOptions={[20]}
-          components={{ Toolbar: GridToolbar }}
-        />
-        <h6 style={{ margin:"2%" }} >BM Total : &nbsp; {temp_bm }</h6> 
-        <h6  style={{  margin:"2%" }} >PAMP Total : &nbsp; {temp_pamp }</h6>
-        <h6  style={{  margin:"2%" }} >BV LINK Total : &nbsp; {temp_bvLink }</h6>
-        <h6  style={{  margin:"2%" }} >BV FORMULA Total : &nbsp; {temp_bm }</h6>
-        </div>:<center style={{marginTop:'20%'}}><h6>Fetching data from api...</h6></center>}
+          {!show ? <div> <DataGrid
+            style={{ height: "28rem", width: "100%" }}
+            rows={rows}
+            columns={columns}
+            pageSize={20}
+            getRowId={(row) => row.code}
+            rowsPerPageOptions={[20]}
+            components={{ Toolbar: GridToolbar }}
+          />
+            <h6 style={{ margin: "2% 0" }} >BM Total : &nbsp; {temp_bm}</h6>
+            <h6 style={{ margin: "2% 0" }} >PAMP Total : &nbsp; {temp_pamp}</h6>
+            <h6 style={{ margin: "2% 0" }} >BV LINK Total : &nbsp; {temp_bvLink}</h6>
+            <h6 style={{ margin: "2% 0" }} >BV FORMULA Total : &nbsp; {temp_bm}</h6>
+          </div> : <center style={{ marginTop: '20%' }}><h6>Fetching data from api...</h6></center>}
         </>
       ) : (
         <center>
@@ -403,21 +405,22 @@ console.log(temp_bvFor_state," temp_bvFor_state")
       )}
 
 
-          <br/>    <Button 
- style={{ marginTop: 20, marginLeft: 0, background: "rgb(38, 126, 212)", color: "#fff",border:"0", padding: "4px 10px" }}
-          onClick={() => {
-            childRef.current.showName();
-          }}
-        >
-          Next
-        </Button>
-        <Button 
+      <br />
+      <button
+        style={{ marginTop: 20, marginLeft: 0, background: "rgb(38, 126, 212)", color: "#fff",border:"0", padding: "4px 10px" }}
+        onClick={() => {
+          childRef.current.showName();
+        }}
+      >
+        Next
+      </button>
+      <button
         style={{ marginTop: 20, marginLeft: 5, background: "#32a852", color: "#fff",border:"0", padding: "4px 10px" }}
         onClick={calculate_total}
-        >
-          Calculate Total
-        </Button>
-        {/* <button onClick={calculate_total} >click to console</button> */}
+      >
+        Calculate Total
+      </button>
+      {/* <button onClick={calculate_total} >click to console</button> */}
     </div>
   );
 };

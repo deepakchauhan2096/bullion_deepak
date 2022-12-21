@@ -22,18 +22,7 @@ const btn = {
   texrDecoration: "none",
 };
 
-const Button = styled.button`
-  border: none;
-  background-color: white;
-  padding: 10px;
-  margin: 20px 0;
-  color: #3596d9;
-  border-radius: 7px;
-  border: 1px solid #3596d9;
-  &:hover {
-    background: ;
-  }
-`;
+
 
 export default function AddSuppliers() {
   const [open, setOpen] = useState(false);
@@ -135,10 +124,10 @@ export default function AddSuppliers() {
 
   const columns = [
     { field: "supplier_id", headerName: "Supplier id", width: 100 },
-    { field: "supplier_name", headerName: " Supplier Name", width: 180 },
-    { field: "supplier_email", headerName: " Email", width: 180 },
-    { field: "phone_1", headerName: " Phone 1", width: 180 },
-    { field: "phone_2", headerName: " Phone 2", width: 180 },
+    { field: "supplier_name", headerName: " Supplier Name", width: 200},
+    { field: "supplier_email", headerName: " Email", width: 300},
+    { field: "phone_1", headerName: " Phone 1", width: 300},
+    { field: "phone_2", headerName: " Phone 2", width: 300},
 
   ];
 
@@ -151,18 +140,19 @@ export default function AddSuppliers() {
   }));
 
   return (
-    <div>
+    <div style={{position:"relative"}}>
       {/* <Button onClick={handleOpen} sx={btn}>Add New Supplier</Button> */}
-      <Button onClick={handleOpen}>Add New Supplier</Button>
-      <Button style={{marginLeft:20}} onClick={handle_update_modal}>Update Supplier</Button>
+      <button onClick={handleOpen} className="fixed-button-modal">Add New Supplier</button>
+      <button onClick={handle_update_modal} className="fixed-button-modal ">Update Supplier</button>
       {all_suppliers?<DataGrid
-          style={{ height: "28rem", width: "100%" }}
+          style={{ height: "100vh", width: "100%",position:"absolute",top:"0" }}
           rows={rows}
           columns={columns}
           pageSize={20}
           getRowId={(row) => row.supplier_id}
           rowsPerPageOptions={[20]}
           components={{ Toolbar: GridToolbar }}
+          density="compact"
         />:<center><h6>loading...</h6></center>}
       
       <Modal
@@ -290,7 +280,7 @@ export default function AddSuppliers() {
                     {!show ? (
                       <button
                         onClick={add_supplier}
-                        class="btn btn-secondary rounded-0 px-4"
+                        className="btn btn-secondary rounded-0 px-4"
                       >
                         Add
                       </button>
@@ -299,7 +289,7 @@ export default function AddSuppliers() {
                       
                         onClick={update_suppliers}
                         type="submit"
-                        class="btn btn-secondary rounded-0 px-3"
+                        className="btn btn-secondary rounded-0 px-3"
                       >
                         Update
                       </button>

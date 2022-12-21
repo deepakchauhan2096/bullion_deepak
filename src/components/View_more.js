@@ -29,7 +29,7 @@ const View_more = () => {
             })
             }
               style={{
-                background: "#fff",
+                background: "beige",
                 color: "#F79D00",
                 border: "0.5px solid #000",
                 borderRadius: "20px",
