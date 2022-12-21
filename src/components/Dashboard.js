@@ -391,11 +391,12 @@ const Dashboard = () => {
             getRowId={(row) => row.code}
             rowsPerPageOptions={[20]}
             components={{ Toolbar: GridToolbar }}
-          />
+          /><div className='form-label-padding'> 
             <h6 style={{ margin: "2% 0" }} >BM Total : &nbsp; {temp_bm}</h6>
             <h6 style={{ margin: "2% 0" }} >PAMP Total : &nbsp; {temp_pamp}</h6>
             <h6 style={{ margin: "2% 0" }} >BV LINK Total : &nbsp; {temp_bvLink}</h6>
             <h6 style={{ margin: "2% 0" }} >BV FORMULA Total : &nbsp; {temp_bm}</h6>
+            </div>
           </div> : <center style={{ marginTop: '20%' }}><h6>Fetching data from api...</h6></center>}
         </>
       ) : (
@@ -407,7 +408,8 @@ const Dashboard = () => {
 
       <br />
       <button
-        style={{ marginTop: 20, marginLeft: 0, background: "rgb(38, 126, 212)", color: "#fff",border:"0", padding: "4px 10px" }}
+        className='form-label-padding'
+        style={{ marginTop: 20, marginBottom: 40, marginRight: "40px", background: "rgb(38, 126, 212)", color: "#fff",border:"0", padding: "4px 10px", float:"right" }}
         onClick={() => {
           childRef.current.showName();
         }}
@@ -415,6 +417,7 @@ const Dashboard = () => {
         Next
       </button>
       <button
+        className='form-label-padding'
         style={{ marginTop: 20, marginLeft: 5, background: "#32a852", color: "#fff",border:"0", padding: "4px 10px" }}
         onClick={calculate_total}
       >

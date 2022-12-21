@@ -345,42 +345,42 @@ th {
 
 
 /* mui */
-.css-1e2bxag-MuiDataGrid-root {
+.MuiDataGrid-root {
     border-radius: 0 !important;
 
 }
 
-.css-1e2bxag-MuiDataGrid-root {
+.MuiDataGrid-root {
     background-color: beige;
 }
 
-.css-1j9kmqg-MuiDataGrid-toolbarContainer {
+.MuiDataGrid-toolbarContainer {
     float: right;
     background-color: beige;
 }
 
-.css-1e2bxag-MuiDataGrid-root {
+.MuiDataGrid-root {
     border-radius: 4px
 }
 
-.css-1w5m2wr-MuiDataGrid-virtualScroller {
+.MuiDataGrid-virtualScroller {
     background-color: white;
 }
 
-.css-1knaqv7-MuiButtonBase-root-MuiButton-root {
+.MuiButtonBase-root-MuiButton-root {
     color: darkcyan !important;
 }
 
-.css-e39x9u-MuiAutocomplete-root .MuiOutlinedInput-root {
+.MuiAutocomplete-root .MuiOutlinedInput-root {
     padding: 0 !important;
 }
 
-.css-e39x9u-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input {
+.MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input {
     padding: 0 !important;
     outline: none;
 }
 
-.css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
+.MuiFormLabel-root-MuiInputLabel-root {
     border-radius: none !important;
 }
 
@@ -393,14 +393,14 @@ th {
       display: none !important;
   } */
 /* autocomplete */
-.css-e39x9u-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input {
+.MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input {
     border-radius: 0 !important;
     height: 31px;
     padding-left: 0px !important;
 }
 
 
-.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+.MuiOutlinedInput-notchedOutline {
     text-align: left;
     position: absolute;
     bottom: 0;
@@ -419,7 +419,7 @@ th {
 }
 
 /* filter area */
-.css-1knaqv7-MuiButtonBase-root-MuiButton-root:nth-child(1) {
+.MuiButtonBase-root-MuiButton-root:nth-child(1) {
     color: darkcyan !important;
     padding: 5px 10px !important;
     border-radius: 0;
@@ -427,7 +427,7 @@ th {
     margin-top: 0;
 }
 
-.css-1knaqv7-MuiButtonBase-root-MuiButton-root:nth-child(2) {
+.MuiButtonBase-root-MuiButton-root:nth-child(2) {
     color: darkcyan !important;
     padding: 4.2px 10px !important;
     border-radius: 0;
@@ -435,7 +435,7 @@ th {
     margin-top: 0;
 }
 
-.css-1knaqv7-MuiButtonBase-root-MuiButton-root:nth-child(3) {
+.MuiButtonBase-root-MuiButton-root:nth-child(3) {
     color: darkcyan !important;
     padding: 5px 10px !important;
     border-radius: 0;
@@ -443,7 +443,7 @@ th {
     margin-top: 0;
 }
 
-.css-1knaqv7-MuiButtonBase-root-MuiButton-root:nth-child(4) {
+.MuiButtonBase-root-MuiButton-root:nth-child(4) {
     color: darkcyan !important;
     padding: 5px 10px !important;
     border-radius: 0;
@@ -452,7 +452,7 @@ th {
 }
 
 
-.css-1j9kmqg-MuiDataGrid-toolbarContainer {
+.MuiDataGrid-toolbarContainer {
     padding: 0 !important;
     margin: 0 !important;
 }

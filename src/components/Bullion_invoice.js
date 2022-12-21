@@ -819,6 +819,7 @@ setImages(formData.images)
                           <Autocomplete
                             style={{ width: "100%" }}
                             disablePortal
+                            hiddenLabel="true"
                             id="combo-box-demo"
                             options={allClinetData}
                             // onChange={(e)=>{
