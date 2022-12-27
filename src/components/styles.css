@@ -490,3 +490,169 @@ th {
         padding-right: 0;
     }
 }
+
+
+
+
+
+
+  /* client Balance .............table */
+
+  .column-width{
+    width: 5vw;
+    text-align: center;
+    
+      }
+      .total-amount{
+        width: 90%;
+    /* border: 1px solid red; */
+    
+      }
+    
+    
+      /* style={{ backgroundColor: "beige",width:"100%",border:'1px solid red' }} */
+      .logo-title{
+        background:beige ;
+        width:100%;
+        position:relative;
+      }
+      .logoTxt{
+        text-align: center;
+        display:flex;
+        font-weight: 500;
+        justify-content: center;
+        width: 30%;
+        position: absolute;
+        right:25%;
+        top:15%;
+        font-size: 2rem;
+        color:#856108;
+        
+      }
+      .headername-color{
+    color:#856108;
+      }
+     option:hover{
+    background-color:#856108 !important;
+     }
+    
+     /* modals css....................  */
+    
+    
+    .modalbtn{
+        color:#fff;
+        background-color:#856108;
+        margin-top:10px;
+        border-radius:5px;
+        border: 1px solid #856108;
+    
+        margin:10px 5px;
+        padding: 5px 10px;
+    }
+    .modalbtn:hover{
+        color:#856108;
+        background-color:#fff;
+        /* box-shadow: 1px 1px #cfb26a; */
+        border: 1px solid #856108;
+        margin-top:10px;
+        border-radius:5px;
+        margin:10px 5px;
+        padding: 5px 10px;
+        
+    }
+    .modalInput{
+        border:1px solid #856108;
+        border-radius:5px;
+        color:#856108;
+        outline:none;
+        margin-left: 5px;
+    }
+    .modalInput1{
+        border:1px solid #856108;
+        border-radius:5px;
+        color:#856108;
+        outline:none;
+        /* margin-left: 5px; */
+    }
+    
+    
+    .delbtn{
+           cursor: pointer;
+            color:red;   
+    }
+    .delbtn:hover{
+       background-color: #fff;
+         color:#856108;   
+    }
+    
+    
+    .backbtn{
+        background-color:red;
+        margin-right:10px;
+        border:1px solid red;
+        height:35px;
+        border-radius: 5px;
+        color: #fff;
+    }
+    .backbtn:hover{
+        color:red;
+        border:1px solid rgb(223, 53, 53);
+        background-color: #fff;
+    }
+    .confirmbtn{
+        color:#fff;
+        border:1px solid green;
+        background:green;
+      cursor: pointer;
+    
+    
+    }
+    .confirmbtn:hover{
+        background-color:#fff;
+        color: green;
+        font-weight: bold;
+     
+      
+    }
+    
+    
+    
+    /* send Otp css ..  */
+    
+    .sendOtp{
+        width:100px;
+       height:27px;
+       padding: 3px 1px;
+       text-align: justify;
+       color:#fff;
+       border:1px solid green;
+       background:green;
+     cursor: pointer;
+    
+        }
+        .sendOtp:hover{
+            width:100px;
+           height:27px;
+           padding: 3px 1px;
+           text-align: justify;
+           background-color:#fff;
+           color:green;
+           font-weight: bold;
+        
+            }
+    
+    
+    
+            /* dashboard jewelery  page selection tags  css .....  */
+           .selectTag{
+            color:#856108;
+            font-size: 15px;
+            width: 120px;
+            margin-right: 10px;
+            height: 40px;
+            border:1px solid #856108;
+            border-radius: 10px;
+            outline: none;
+           }
+              
+    

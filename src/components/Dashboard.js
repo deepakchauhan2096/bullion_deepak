@@ -267,6 +267,7 @@ const Dashboard = () => {
       <section style={{ background: "beige" }}>
         {ispopular ? (
           <select
+          className="selectTag"
             style={{
               width: "200px",
               color: "black",
@@ -290,6 +291,7 @@ const Dashboard = () => {
           </select>
         ) : (
           <select
+          className="selectTag"
             style={{
               width: "200px",
               color: "black",
@@ -300,9 +302,9 @@ const Dashboard = () => {
               margin: "0px 0px",
             }}
             onChange={(e) => (value2 = e.target.value)}
-            className="select-option"
+          
           >
-            <option selected disabled>
+            <option selected disabled style={{border:"1px solid red"}}>
               All Option
             </option>
             {alllist?.map((value) => (

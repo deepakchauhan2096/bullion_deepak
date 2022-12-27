@@ -611,7 +611,7 @@ setImages(formData.images)
               id="modal-modal-title"
               variant="h6"
               component="h2"
-              style={{ color: "green" }}
+              style={{color:"#856108"}} 
             >
               Enter OTP Here.
             </Typography>
