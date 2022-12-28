@@ -542,7 +542,7 @@ console.log(location.state,"location.state")
         <>
             <Sidebar />
 
-            {showInvoice ? <PDFViewer style={{ height: "80vh", width: "78vw" }}>
+            {showInvoice ? <PDFViewer style={{ height: "95vh", width: "100%" }}>
 
                 <MyDocument />
 
@@ -551,7 +551,7 @@ console.log(location.state,"location.state")
             <div style={{
                 display: "flex",
                 justifyContent: "space-between",
-                padding: "25px"
+                padding: "10px 20px"
             }}>
                 <Button variant="contained"
 

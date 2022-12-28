@@ -24,6 +24,7 @@
     "react-pdf-table": "^1.0.0-alfa.3",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-select": "^5.7.0",
     "styled-components": "^5.3.5",
     "to-words": "^3.3.2",
     "two-step-auth": "^1.1.2",

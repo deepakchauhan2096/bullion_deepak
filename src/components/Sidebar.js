@@ -28,14 +28,14 @@ function Sidebar(props) {
     color:black;
     line-height:30px;
     &:hover{
-        color:white;
-    `
+        color:#856108;
+    `;
     const List = styled.div`
-    &:hover{
-        background-color:#3596d9;
-        color:white;
+    &:hover {
+      background: beige;
+     color:#856108;
     }
-    `
+  `;
 
     const Profile = styled.div`{
         background-color:beige;
@@ -66,8 +66,8 @@ function Sidebar(props) {
     const drawerList = (
         <div>
             <Profile>
-                <ListItem>
-                    <img src={logo}  height={50} width={60} />
+                <ListItem  className="logo-title">
+                    <img src={logo}  height={50} width={60} alt="logo"  />
                     <p style={{paddingTop:"0", position:"absolute",top:"28%",left:"30%", color:"#bd9334"}}>Bullion</p>
                 </ListItem>
             </Profile>
