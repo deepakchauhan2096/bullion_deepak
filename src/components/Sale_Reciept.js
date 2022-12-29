@@ -343,248 +343,132 @@ const Sale_Reciept = () => {
           position: "relative",
         }}
       >
-        <form className="">
-          <div className="container" style={{ backgroundColor: "white" }}>
-            <div className="row">
-              <div className="col-lg-6 g-0">
-                <table
-                  className="table-border"
-                  style={{ backgroundColor: "white" }}
-                >
-                  <tbody>
-                    <tr>
-                      <td>
-                        <b className="form-label-padding">CLINT ID</b>
-                      </td>
-                      <td>
-                        <Autocomplete
-                          style={{ backgroundColor: "beige" }}
-                          disablePortal
-                          //  className="input-fields"
-                          id="combo-box-demo"
-                          options={allClinetData}
-                          // onChange={(e)=>{
-                          //     console.log("ek : ",e)
-                          //     // setFormData()
-                          // }}
-                          // getOptionLabel={(option) => {
-                          //     console.log("option : ",option)
-                          // }}
 
-                          value={formData.client_id}
-                          onChange={(event, newValue) => {
-                            console.log("newValue : ", newValue);
-                            if (newValue != null) {
-                              setFormData({ ...newValue, consent: false });
-                            }
-                          }}
-                          sx={{ width: "100%" }}
-                          renderInput={(params) => (
-                            <TextField {...params} label="Select Client" />
-                          )}
-                        />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td scope="col">
-                        <b className="form-label-padding">First Name*</b>
-                      </td>
-                      <td
-                        scope="col"
-                        style={{ backgroundColor: "rgb(251, 251, 244)" }}
-                      >
-                        <b
-                          value={formData.first_name}
-                          error={formDataError.first_nameErr}
-                          onChange={(e) => {
-                            console.log("e : ", e.target.value);
-                            handleChange("first_name", e.target.value);
-                            if (e.target.value != "") {
-                              setFormDataError((prev) => {
-                                // console.log("text : ",text)
-                                return { ...prev, first_nameErr: false };
-                              });
-                            }
-                          }}
-                        >
-                          {formData.first_name}
-                        </b>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td scope="col">
-                        <b className="form-label-padding">Surname*</b>
-                      </td>
-                      <td
-                        scope="col"
-                        style={{ backgroundColor: "rgb(251, 251, 244)" }}
-                      >
-                        <b
-                          value={formData.surname}
-                          error={formDataError.surnameErr}
-                          onChange={(e) => {
-                            handleChange("surname", e.target.value);
-                            if (e.target.value != "") {
-                              setFormDataError((prev) => {
-                                // console.log("text : ",text)
-                                return { ...prev, surnameErr: false };
-                              });
-                            }
-                          }}
-                        >
-                          {formData.surname}
-                        </b>
-                      </td>
-                    </tr>
+        <div className="">
+          <div className="">
+            <div className="col-lg-12 g-0">
+              <table
+                className="table-border"
+              >
+                <tbody>
+                  <tr>
+                    <td>
+                      <b className="form-label-padding">CLINT ID</b>
+                    </td>
+                    <td>
+                      <Autocomplete
+                        style={{ backgroundColor: "beige" }}
+                        disablePortal
+                        //  className="input-fields"
+                        id="combo-box-demo"
+                        options={allClinetData}
+                        // onChange={(e)=>{
+                        //     console.log("ek : ",e)
+                        //     // setFormData()
+                        // }}
+                        // getOptionLabel={(option) => {
+                        //     console.log("option : ",option)
+                        // }}
 
-                    <tr>
-                      <td scope="col">
-                        <b className="form-label-padding">Road/Street</b>
-                      </td>
-                      <td
-                        scope="col"
-                        style={{ backgroundColor: "rgb(251, 251, 244)" }}
-                      >
-                        <b
-                          value={formData.house_name}
-                          onChange={(e) => {
-                            handleChange("house_name", e.target.value);
-                          }}
-                        >
-                          {formData.house_name}
-                        </b>
-                      </td>
-                    </tr>
+                        value={formData.client_id}
+                        onChange={(event, newValue) => {
+                          console.log("newValue : ", newValue);
+                          if (newValue != null) {
+                            setFormData({ ...newValue, consent: false });
+                          }
+                        }}
+                        sx={{ width: "100%" }}
+                        renderInput={(params) => (
+                          <TextField {...params} label="" />
+                        )}
+                      />
+                    </td>
+                    <td>
+                      <b className="form-label-padding">Date:</b>
+                    </td>
+                    <td style={{ backgroundColor: "rgb(251, 251, 244)" }} colspan="2">
+                      {todayDate}
+                    </td>
+                  </tr>
 
-                    <tr>
-                      <td scope="col">
-                        <b className="form-label-padding">City/Town</b>
-                      </td>
-                      <td
-                        scope="col"
-                        style={{ backgroundColor: "rgb(251, 251, 244)" }}
+                  <tr>
+                    <td scope="col">
+                      <b className="form-label-padding">First Name*</b>
+                    </td>
+                    <td
+                      scope="col"
+                      style={{ backgroundColor: "rgb(251, 251, 244)" }}
+                    >
+                      <b
+                        value={formData.first_name}
+                        error={formDataError.first_nameErr}
+                        onChange={(e) => {
+                          console.log("e : ", e.target.value);
+                          handleChange("first_name", e.target.value);
+                          if (e.target.value != "") {
+                            setFormDataError((prev) => {
+                              // console.log("text : ",text)
+                              return { ...prev, first_nameErr: false };
+                            });
+                          }
+                        }}
                       >
-                        <b
-                          value={formData.city_and_town}
-                          onChange={(e) => {
-                            handleChange("city_and_town", e.target.value);
-                          }}
-                        >
-                          {formData.city_and_town}
-                        </b>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td scope="col">
-                        <b className="form-label-padding">Postcode</b>
-                      </td>
-                      <td
-                        scope="col"
-                        style={{ backgroundColor: "rgb(251, 251, 244)" }}
+                        {formData.first_name}
+                      </b>
+                    </td>
+                    <td>
+                      <b className="form-label-padding">Invoice Number:</b>
+                    </td>
+                    <td style={{ backgroundColor: "rgb(251, 251, 244)" }} colspan="2">
+                      <b
+                        value={otherFormData.Invoice_number}
+                        onChange={(e) => {
+                          handleChangeOtherData(
+                            "Invoice_number",
+                            e.target.value
+                          );
+                        }}
                       >
-                        <b
-                          value={formData.postcode}
-                          onChange={(e) => {
-                            handleChange("postcode", e.target.value);
-                          }}
-                        >
-                          {formData.postcode}
-                        </b>
-                      </td>
-                    </tr>
+                        {otherFormData.Invoice_number}
+                      </b>
+                    </td>
 
-                    <tr>
-                      <td scope="col">
-                        <b className="form-label-padding">Mobile*</b>
-                      </td>
-                      <td
-                        scope="col"
-                        style={{ backgroundColor: "rgb(251, 251, 244)" }}
-                      >
-                        <b
-                          value={formData.mobile}
-                          error={formDataError.mobileErr}
-                          onChange={(e) => {
-                            handleChange("mobile", e.target.value);
-                            if (e.target.value != "") {
-                              setFormDataError((prev) => {
-                                // console.log("text : ",text)
-                                return { ...prev, mobileErr: false };
-                              });
-                            }
-                          }}
-                        >
-                          {formData.mobile}
-                        </b>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td scope="col">
-                        <b className="form-label-padding">Email*</b>
-                      </td>
-                      <td
-                        scope="col"
-                        style={{ backgroundColor: "rgb(251, 251, 244)" }}
-                      >
-                        <b
-                          value={formData.email}
-                          error={formDataError.emailErr}
-                          onChange={(e) => {
-                            handleChange("email", e.target.value);
-                            if (e.target.value != "") {
-                              setFormDataError((prev) => {
-                                // console.log("text : ",text)
-                                return { ...prev, emailErr: false };
-                              });
-                            }
-                          }}
-                        >
-                          {formData.email}
-                        </b>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div className="col-lg-6 g-0">
-                <table className="table-border">
-                  <tbody>
-                    <tr>
-                      <td>
-                        <b className="form-label-padding">Date:</b>
-                      </td>
-                      <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
-                        {todayDate}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <b className="form-label-padding">Invoice Number:</b>
-                      </td>
-                      <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
-                        <b
-                          value={otherFormData.Invoice_number}
-                          onChange={(e) => {
-                            handleChangeOtherData(
-                              "Invoice_number",
-                              e.target.value
-                            );
-                          }}
-                        >
-                          {otherFormData.Invoice_number}
-                        </b>
-                      </td>
-                    </tr>
 
-                    <tr>
-                      <td>
-                        <b className="form-label-padding">SERVED BY</b>
-                      </td>
-                      <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
-                        <b className="form-label-padding">
-                          {formData.Served_by}
-                        </b>
-                        {/* <Autocomplete
+
+
+                  </tr>
+                  <tr>
+                    <td scope="col">
+                      <b className="form-label-padding">Surname*</b>
+                    </td>
+                    <td
+                      scope="col"
+                      style={{ backgroundColor: "rgb(251, 251, 244)" }}
+                    >
+                      <b
+                        value={formData.surname}
+                        error={formDataError.surnameErr}
+                        onChange={(e) => {
+                          handleChange("surname", e.target.value);
+                          if (e.target.value != "") {
+                            setFormDataError((prev) => {
+                              // console.log("text : ",text)
+                              return { ...prev, surnameErr: false };
+                            });
+                          }
+                        }}
+                      >
+                        {formData.surname}
+                      </b>
+                    </td>
+                    <td>
+                      <b className="form-label-padding">SERVED BY</b>
+                    </td>
+                    <td style={{ backgroundColor: "rgb(251, 251, 244)" }} colspan="2">
+                      <b className="form-label-padding">
+                        {formData.Served_by}
+                      </b>
+                      {/* <Autocomplete
                                             disablePortal
                                             id="combo-box-demo"
                                             options={[{label:"name1"},{label:"name2"},{label:"name3"},{label:"name4"},]}
@@ -605,339 +489,432 @@ const Sale_Reciept = () => {
                                             sx={{ width: 200 }}
                                             renderInput={(params) => <TextField {...params} label="Select Option" />}
                                         /> */}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div className="col-lg-24 g-0">
-                  <table className="table-border">
-                    <tbody>
-                      <tr>
-                        <td>
-                          <b className="form-label-padding">Payment Details</b>
-                        </td>
-                        <td>
-                          <b className="form-label-padding">Amount</b>
-                        </td>
-                        <td>
-                          <b className="form-label-padding">Remark</b>
-                        </td>
-                      </tr>
+                    </td>
+                  </tr>
 
-                      <tr>
-                        <td>BANK</td>
-                        <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
-                          <b
-                            value={otherFormData.Bank_amount}
-                            onChange={(e) => {
-                              console.log(
-                                "Bank_amount : ",
-                                typeof e.target.value
-                              );
-                              if (e.target.value != "") {
-                                handleChangeOtherData(
-                                  "Bank_amount",
-                                  e.target.value
-                                );
-                                setTotalPrice(
-                                  () =>
-                                    parseFloat(e.target.value) +
-                                    parseFloat(otherFormData.Card_amount) +
-                                    parseFloat(otherFormData.Cash_amount) +
-                                    parseFloat(otherFormData.Chaque_amount) +
-                                    parseFloat(otherFormData.Exchange_amount)
-                                );
-                                setTotalPriceInWord(
-                                  () =>
-                                    parseFloat(e.target.value) +
-                                    parseFloat(otherFormData.Card_amount) +
-                                    parseFloat(otherFormData.Cash_amount) +
-                                    parseFloat(otherFormData.Chaque_amount) +
-                                    parseFloat(otherFormData.Exchange_amount)
-                                );
-                              } else {
-                                handleChangeOtherData("Bank_amount", 0);
-                              }
-                            }}
-                          >
-                            {otherFormData.Bank_amount}
-                          </b>
-                        </td>
-                        <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
-                          <b
-                            value={otherFormData.Bank_remark}
-                            onChange={(e) => {
+                  <tr>
+                    <td scope="col">
+                      <b className="form-label-padding">Road/Street</b>
+                    </td>
+                    <td
+                      scope="col"
+                      style={{ backgroundColor: "rgb(251, 251, 244)" }}
+                    >
+                      <b
+                        value={formData.house_name}
+                        onChange={(e) => {
+                          handleChange("house_name", e.target.value);
+                        }}
+                      >
+                        {formData.house_name}
+                      </b>
+                    </td>
+                    <td>
+                      <b className="form-label-padding">Payment Details</b>
+                    </td>
+                    <td>
+                      <b className="form-label-padding">Amount</b>
+                    </td>
+                    <td>
+                      <b className="form-label-padding">Remark</b>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td scope="col">
+                      <b className="form-label-padding">City/Town</b>
+                    </td>
+                    <td
+                      scope="col"
+                      style={{ backgroundColor: "rgb(251, 251, 244)" }}
+                    >
+                      <b
+                        value={formData.city_and_town}
+                        onChange={(e) => {
+                          handleChange("city_and_town", e.target.value);
+                        }}
+                      >
+                        {formData.city_and_town}
+                      </b>
+                    </td>
+                    <td>BANK</td>
+                      <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
+                        <b
+                          value={otherFormData.Bank_amount}
+                          onChange={(e) => {
+                            console.log(
+                              "Bank_amount : ",
+                              typeof e.target.value
+                            );
+                            if (e.target.value != "") {
                               handleChangeOtherData(
-                                "Bank_remark",
+                                "Bank_amount",
                                 e.target.value
                               );
-                            }}
-                          >
-                            {otherFormData.Bank_remark}
-                          </b>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>CARD</td>
-                        <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
-                          <b
-                            value={otherFormData.Card_amount}
-                            onChange={(e) => {
-                              if (e.target.value != "") {
-                                handleChangeOtherData(
-                                  "Card_amount",
-                                  e.target.value
-                                );
-                                setTotalPrice(
-                                  () =>
-                                    parseFloat(otherFormData.Bank_amount) +
-                                    parseFloat(e.target.value) +
-                                    parseFloat(otherFormData.Cash_amount) +
-                                    parseFloat(otherFormData.Chaque_amount) +
-                                    parseFloat(otherFormData.Exchange_amount)
-                                );
-                                setTotalPriceInWord(
-                                  () =>
-                                    parseFloat(otherFormData.Bank_amount) +
-                                    parseFloat(e.target.value) +
-                                    parseFloat(otherFormData.Cash_amount) +
-                                    parseFloat(otherFormData.Chaque_amount) +
-                                    parseFloat(otherFormData.Exchange_amount)
-                                );
-                              } else {
-                                handleChangeOtherData("Card_amount", 0);
-                              }
-                            }}
-                          >
-                            {otherFormData.Card_amount}
-                          </b>
-                        </td>
-                        <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
-                          <b
-                            value={otherFormData.Card_remark}
-                            onChange={(e) => {
+                              setTotalPrice(
+                                () =>
+                                  parseFloat(e.target.value) +
+                                  parseFloat(otherFormData.Card_amount) +
+                                  parseFloat(otherFormData.Cash_amount) +
+                                  parseFloat(otherFormData.Chaque_amount) +
+                                  parseFloat(otherFormData.Exchange_amount)
+                              );
+                              setTotalPriceInWord(
+                                () =>
+                                  parseFloat(e.target.value) +
+                                  parseFloat(otherFormData.Card_amount) +
+                                  parseFloat(otherFormData.Cash_amount) +
+                                  parseFloat(otherFormData.Chaque_amount) +
+                                  parseFloat(otherFormData.Exchange_amount)
+                              );
+                            } else {
+                              handleChangeOtherData("Bank_amount", 0);
+                            }
+                          }}
+                        >
+                          {otherFormData.Bank_amount}
+                        </b>
+                      </td>
+                      <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
+                        <b
+                          value={otherFormData.Bank_remark}
+                          onChange={(e) => {
+                            handleChangeOtherData(
+                              "Bank_remark",
+                              e.target.value
+                            );
+                          }}
+                        >
+                          {otherFormData.Bank_remark}
+                        </b>
+                      </td>
+                  </tr>
+                  <tr>
+                    <td scope="col">
+                      <b className="form-label-padding">Postcode</b>
+                    </td>
+                    <td
+                      scope="col"
+                      style={{ backgroundColor: "rgb(251, 251, 244)" }}
+                    >
+                      <b
+                        value={formData.postcode}
+                        onChange={(e) => {
+                          handleChange("postcode", e.target.value);
+                        }}
+                      >
+                        {formData.postcode}
+                      </b>
+                    </td>
+                    <td>CARD</td>
+                      <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
+                        <b
+                          value={otherFormData.Card_amount}
+                          onChange={(e) => {
+                            if (e.target.value != "") {
                               handleChangeOtherData(
-                                "Card_remark",
+                                "Card_amount",
                                 e.target.value
                               );
-                            }}
-                          >
-                            {otherFormData.Card_remark}
-                          </b>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>CASH</td>
-                        <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
-                          <b
-                            value={otherFormData.Cash_amount}
-                            onChange={(e) => {
-                              if (e.target.value != "") {
-                                handleChangeOtherData(
-                                  "Cash_amount",
-                                  e.target.value
-                                );
-                                setTotalPrice(
-                                  () =>
-                                    parseFloat(otherFormData.Bank_amount) +
-                                    parseFloat(otherFormData.Card_amount) +
-                                    parseFloat(e.target.value) +
-                                    parseFloat(otherFormData.Chaque_amount) +
-                                    parseFloat(otherFormData.Exchange_amount)
-                                );
-                                setTotalPriceInWord(
-                                  () =>
-                                    parseFloat(otherFormData.Bank_amount) +
-                                    parseFloat(otherFormData.Card_amount) +
-                                    parseFloat(e.target.value) +
-                                    parseFloat(otherFormData.Chaque_amount) +
-                                    parseFloat(otherFormData.Exchange_amount)
-                                );
-                              } else {
-                                handleChangeOtherData("Cash_amount", 0);
-                              }
-                            }}
-                          >
-                            {otherFormData.Cash_amount}
-                          </b>
-                        </td>
-                        <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
-                          <b
-                            value={otherFormData.Cash_remark}
-                            onChange={(e) => {
+                              setTotalPrice(
+                                () =>
+                                  parseFloat(otherFormData.Bank_amount) +
+                                  parseFloat(e.target.value) +
+                                  parseFloat(otherFormData.Cash_amount) +
+                                  parseFloat(otherFormData.Chaque_amount) +
+                                  parseFloat(otherFormData.Exchange_amount)
+                              );
+                              setTotalPriceInWord(
+                                () =>
+                                  parseFloat(otherFormData.Bank_amount) +
+                                  parseFloat(e.target.value) +
+                                  parseFloat(otherFormData.Cash_amount) +
+                                  parseFloat(otherFormData.Chaque_amount) +
+                                  parseFloat(otherFormData.Exchange_amount)
+                              );
+                            } else {
+                              handleChangeOtherData("Card_amount", 0);
+                            }
+                          }}
+                        >
+                          {otherFormData.Card_amount}
+                        </b>
+                      </td>
+                      <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
+                        <b
+                          value={otherFormData.Card_remark}
+                          onChange={(e) => {
+                            handleChangeOtherData(
+                              "Card_remark",
+                              e.target.value
+                            );
+                          }}
+                        >
+                          {otherFormData.Card_remark}
+                        </b>
+                      </td>
+                  </tr>
+
+                  <tr>
+                    <td scope="col">
+                      <b className="form-label-padding">Mobile*</b>
+                    </td>
+                    <td
+                      scope="col"
+                      style={{ backgroundColor: "rgb(251, 251, 244)" }}
+                    >
+                      <b
+                        value={formData.mobile}
+                        error={formDataError.mobileErr}
+                        onChange={(e) => {
+                          handleChange("mobile", e.target.value);
+                          if (e.target.value != "") {
+                            setFormDataError((prev) => {
+                              // console.log("text : ",text)
+                              return { ...prev, mobileErr: false };
+                            });
+                          }
+                        }}
+                      >
+                        {formData.mobile}
+                      </b>
+                    </td>
+                    <td>CASH</td>
+                      <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
+                        <b
+                          value={otherFormData.Cash_amount}
+                          onChange={(e) => {
+                            if (e.target.value != "") {
                               handleChangeOtherData(
-                                "Cash_remark",
+                                "Cash_amount",
                                 e.target.value
                               );
-                            }}
-                          >
-                            {otherFormData.Cash_remark}
-                          </b>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>CHEQUE</td>
-                        <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
-                          <b
-                            value={otherFormData.Chaque_amount}
-                            onChange={(e) => {
-                              if (e.target.value != "") {
-                                handleChangeOtherData(
-                                  "Chaque_amount",
-                                  e.target.value
-                                );
-                                setTotalPrice(
-                                  () =>
-                                    parseFloat(otherFormData.Bank_amount) +
-                                    parseFloat(otherFormData.Card_amount) +
-                                    parseFloat(otherFormData.Cash_amount) +
-                                    parseFloat(e.target.value) +
-                                    parseFloat(otherFormData.Exchange_amount)
-                                );
-                                setTotalPriceInWord(
-                                  () =>
-                                    parseFloat(otherFormData.Bank_amount) +
-                                    parseFloat(otherFormData.Card_amount) +
-                                    parseFloat(otherFormData.Cash_amount) +
-                                    parseFloat(e.target.value) +
-                                    parseFloat(otherFormData.Exchange_amount)
-                                );
-                              } else {
-                                handleChangeOtherData("Chaque_amount", 0);
-                              }
-                            }}
-                          >
-                            {otherFormData.Chaque_amount}
-                          </b>
-                        </td>
-                        <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
-                          <b
-                            value={otherFormData.Chaque_remark}
-                            onChange={(e) => {
+                              setTotalPrice(
+                                () =>
+                                  parseFloat(otherFormData.Bank_amount) +
+                                  parseFloat(otherFormData.Card_amount) +
+                                  parseFloat(e.target.value) +
+                                  parseFloat(otherFormData.Chaque_amount) +
+                                  parseFloat(otherFormData.Exchange_amount)
+                              );
+                              setTotalPriceInWord(
+                                () =>
+                                  parseFloat(otherFormData.Bank_amount) +
+                                  parseFloat(otherFormData.Card_amount) +
+                                  parseFloat(e.target.value) +
+                                  parseFloat(otherFormData.Chaque_amount) +
+                                  parseFloat(otherFormData.Exchange_amount)
+                              );
+                            } else {
+                              handleChangeOtherData("Cash_amount", 0);
+                            }
+                          }}
+                        >
+                          {otherFormData.Cash_amount}
+                        </b>
+                      </td>
+                      <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
+                        <b
+                          value={otherFormData.Cash_remark}
+                          onChange={(e) => {
+                            handleChangeOtherData(
+                              "Cash_remark",
+                              e.target.value
+                            );
+                          }}
+                        >
+                          {otherFormData.Cash_remark}
+                        </b>
+                      </td>
+                  </tr>
+                  <tr>
+                    <td scope="col">
+                      <b className="form-label-padding">Email*</b>
+                    </td>
+                    <td
+                      scope="col"
+                      style={{ backgroundColor: "rgb(251, 251, 244)" }}
+                    >
+                      <b
+                        value={formData.email}
+                        error={formDataError.emailErr}
+                        onChange={(e) => {
+                          handleChange("email", e.target.value);
+                          if (e.target.value != "") {
+                            setFormDataError((prev) => {
+                              // console.log("text : ",text)
+                              return { ...prev, emailErr: false };
+                            });
+                          }
+                        }}
+                      >
+                        {formData.email}
+                      </b>
+                    </td>
+                    <td>CHEQUE</td>
+                      <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
+                        <b
+                          value={otherFormData.Chaque_amount}
+                          onChange={(e) => {
+                            if (e.target.value != "") {
                               handleChangeOtherData(
-                                "Chaque_remark",
+                                "Chaque_amount",
                                 e.target.value
                               );
-                            }}
-                          >
-                            {otherFormData.Chaque_remark}
-                          </b>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>EXCHANGE</td>
-                        <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
-                          <b
-                            value={otherFormData.Exchange_amount}
-                            onChange={(e) => {
-                              if (e.target.value != "") {
-                                handleChangeOtherData(
-                                  "Exchange_amount",
-                                  e.target.value
-                                );
-                                setTotalPrice(
-                                  () =>
-                                    parseFloat(otherFormData.Bank_amount) +
-                                    parseFloat(otherFormData.Card_amount) +
-                                    parseFloat(otherFormData.Cash_amount) +
-                                    parseFloat(otherFormData.Chaque_amount) +
-                                    parseFloat(e.target.value)
-                                );
-                                setTotalPriceInWord(
-                                  () =>
-                                    parseFloat(otherFormData.Bank_amount) +
-                                    parseFloat(otherFormData.Card_amount) +
-                                    parseFloat(otherFormData.Cash_amount) +
-                                    parseFloat(otherFormData.Chaque_amount) +
-                                    parseFloat(e.target.value)
-                                );
-                              } else {
-                                handleChangeOtherData("Exchange_amount", 0);
-                              }
-                              // console.log("typeof : ",typeof (parseFloat(otherFormData.Bank_amount)+parseFloat(otherFormData.Card_amount)+parseFloat(otherFormData.Cash_amount)+parseFloat(otherFormData.Chaque_amount)+parseFloat(e.target.value)))
-                            }}
-                          >
-                            {otherFormData.Exchange_amount}
-                          </b>
-                        </td>
-                        <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
-                          <b
-                            value={otherFormData.Exchange_remark}
-                            onChange={(e) => {
+                              setTotalPrice(
+                                () =>
+                                  parseFloat(otherFormData.Bank_amount) +
+                                  parseFloat(otherFormData.Card_amount) +
+                                  parseFloat(otherFormData.Cash_amount) +
+                                  parseFloat(e.target.value) +
+                                  parseFloat(otherFormData.Exchange_amount)
+                              );
+                              setTotalPriceInWord(
+                                () =>
+                                  parseFloat(otherFormData.Bank_amount) +
+                                  parseFloat(otherFormData.Card_amount) +
+                                  parseFloat(otherFormData.Cash_amount) +
+                                  parseFloat(e.target.value) +
+                                  parseFloat(otherFormData.Exchange_amount)
+                              );
+                            } else {
+                              handleChangeOtherData("Chaque_amount", 0);
+                            }
+                          }}
+                        >
+                          {otherFormData.Chaque_amount}
+                        </b>
+                      </td>
+                      <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
+                        <b
+                          value={otherFormData.Chaque_remark}
+                          onChange={(e) => {
+                            handleChangeOtherData(
+                              "Chaque_remark",
+                              e.target.value
+                            );
+                          }}
+                        >
+                          {otherFormData.Chaque_remark}
+                        </b>
+                      </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+
+                    </td>
+                    <td>EXCHANGE</td>
+                      <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
+                        <b
+                          value={otherFormData.Exchange_amount}
+                          onChange={(e) => {
+                            if (e.target.value != "") {
                               handleChangeOtherData(
-                                "Exchange_remark",
+                                "Exchange_amount",
                                 e.target.value
                               );
-                            }}
-                          >
-                            {otherFormData.Exchange_remark}
-                          </b>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+                              setTotalPrice(
+                                () =>
+                                  parseFloat(otherFormData.Bank_amount) +
+                                  parseFloat(otherFormData.Card_amount) +
+                                  parseFloat(otherFormData.Cash_amount) +
+                                  parseFloat(otherFormData.Chaque_amount) +
+                                  parseFloat(e.target.value)
+                              );
+                              setTotalPriceInWord(
+                                () =>
+                                  parseFloat(otherFormData.Bank_amount) +
+                                  parseFloat(otherFormData.Card_amount) +
+                                  parseFloat(otherFormData.Cash_amount) +
+                                  parseFloat(otherFormData.Chaque_amount) +
+                                  parseFloat(e.target.value)
+                              );
+                            } else {
+                              handleChangeOtherData("Exchange_amount", 0);
+                            }
+                            // console.log("typeof : ",typeof (parseFloat(otherFormData.Bank_amount)+parseFloat(otherFormData.Card_amount)+parseFloat(otherFormData.Cash_amount)+parseFloat(otherFormData.Chaque_amount)+parseFloat(e.target.value)))
+                          }}
+                        >
+                          {otherFormData.Exchange_amount}
+                        </b>
+                      </td>
+                      <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
+                        <b
+                          value={otherFormData.Exchange_remark}
+                          onChange={(e) => {
+                            handleChangeOtherData(
+                              "Exchange_remark",
+                              e.target.value
+                            );
+                          }}
+                        >
+                          {otherFormData.Exchange_remark}
+                        </b>
+                      </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <br />
+            
+          </div>
+          <br />
 
-            <div className="row">
-              <div className="col-lg-24 g-0">
-                <table className="table-border">
-                  <tbody>
-                    <tr>
-                      <td>
-                        <b className="form-label-padding"></b>
-                      </td>
-                      <td>
-                        <b className="form-label-padding">Total</b>
-                      </td>
-                      <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
-                        <b className="form-label-padding"></b>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>PAYMENT RECEIVED </td>
-                      <td
-                        style={{ backgroundColor: "rgb(251, 251, 244)" }}
-                      ></td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td>
-                        {converter
-                          .toWords(
-                            parseFloat(otherFormData.Bank_amount) +
-                              parseFloat(otherFormData.Card_amount) +
-                              parseFloat(otherFormData.Cash_amount) +
-                              parseFloat(otherFormData.Chaque_amount) +
-                              parseFloat(otherFormData.Exchange_amount)
-                          )
-                          .toUpperCase()}
-                      </td>
-                      <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
-                        €
-                        {parseFloat(otherFormData.Bank_amount) +
+          <div className="row">
+            <div className="col-lg-24 g-0">
+              <table className="table-border">
+                <tbody>
+                  <tr>
+                    <td>
+                      <b className="form-label-padding"></b>
+                    </td>
+                    <td>
+                      <b className="form-label-padding">Total</b>
+                    </td>
+                    <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
+                      <b className="form-label-padding"></b>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>PAYMENT RECEIVED </td>
+                    <td
+                      style={{ backgroundColor: "rgb(251, 251, 244)" }}
+                    ></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>
+                      {converter
+                        .toWords(
+                          parseFloat(otherFormData.Bank_amount) +
                           parseFloat(otherFormData.Card_amount) +
                           parseFloat(otherFormData.Cash_amount) +
                           parseFloat(otherFormData.Chaque_amount) +
-                          parseFloat(otherFormData.Exchange_amount)}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                          parseFloat(otherFormData.Exchange_amount)
+                        )
+                        .toUpperCase()}
+                    </td>
+                    <td style={{ backgroundColor: "rgb(251, 251, 244)" }}>
+                      €
+                      {parseFloat(otherFormData.Bank_amount) +
+                        parseFloat(otherFormData.Card_amount) +
+                        parseFloat(otherFormData.Cash_amount) +
+                        parseFloat(otherFormData.Chaque_amount) +
+                        parseFloat(otherFormData.Exchange_amount)}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
-        </form>
+        </div>
 
         <div className="row" style={{ padding: "30px 0 30px 0" }}>
           <div className="col-12">
             <b className="form-label-padding">
               <input
                 type="checkbox"
-                style={{accentColor:"#856108",background:"#856108"}}
+                style={{ accentColor: "#856108", background: "#856108" }}
                 onClick={(e) => {
                   console.log("checkbox : ", e.target.value);
                   handleChange("consent", !formData.consent);
@@ -973,10 +950,10 @@ const Sale_Reciept = () => {
               console.log(
                 "totalPriceInWord : ",
                 parseFloat(otherFormData.Bank_amount) +
-                  parseFloat(otherFormData.Card_amount) +
-                  parseFloat(otherFormData.Cash_amount) +
-                  parseFloat(otherFormData.Chaque_amount) +
-                  parseFloat(otherFormData.Exchange_amount)
+                parseFloat(otherFormData.Card_amount) +
+                parseFloat(otherFormData.Cash_amount) +
+                parseFloat(otherFormData.Chaque_amount) +
+                parseFloat(otherFormData.Exchange_amount)
               );
               console.log(parseFloat(otherFormData.Bank_amount));
               console.log(parseFloat(otherFormData.Card_amount));
@@ -989,10 +966,10 @@ const Sale_Reciept = () => {
                 "convert : ",
                 converter.toWords(
                   parseFloat(otherFormData.Bank_amount) +
-                    parseFloat(otherFormData.Card_amount) +
-                    parseFloat(otherFormData.Cash_amount) +
-                    parseFloat(otherFormData.Chaque_amount) +
-                    parseFloat(otherFormData.Exchange_amount)
+                  parseFloat(otherFormData.Card_amount) +
+                  parseFloat(otherFormData.Cash_amount) +
+                  parseFloat(otherFormData.Chaque_amount) +
+                  parseFloat(otherFormData.Exchange_amount)
                 )
               );
               console.log("button : ", formData);

@@ -280,7 +280,6 @@ const NewCombination = () => {
                   top: "50%",
                   left: "50%",
                   textAlign: "center",
-                  // Transform: "translate(-50%,-50%)",
                   marginLeft: "auto",
                   marginRight: "auto",
                   left: 0,

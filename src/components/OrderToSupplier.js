@@ -8,7 +8,7 @@ const OrderToSupplier = () => {
 
          
                 <div className='' style={{ height: "100vh", backgroundColor: "", paddingLeft: "0px", paddingRight: "0" }}>
-                    <div className="container g-0" style={{ backgroundColor: "beige", height: "100%", position: "relative" }}>
+                    <div className="g-0" style={{ backgroundColor: "beige", height: "100%", position: "relative" }}>
 
                         <table className="table-border" style={{ backgroundColor: "white" }}>
                             <tbody>

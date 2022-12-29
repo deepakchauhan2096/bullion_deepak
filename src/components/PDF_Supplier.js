@@ -11,7 +11,6 @@ import {
 import { Table, TableHeader, TableCell, TableBody, DataTableCell } from "@david.kucsai/react-pdf-table"
 import Sidebar from './Sidebar'
 import logo from './../imgs/muljis_logo.png'
-import { TableRow } from "@mui/material";
 
 // Create styles
 const styles = StyleSheet.create({
@@ -121,6 +120,15 @@ const styles = StyleSheet.create({
         right: 0
     },
 
+    prr: {
+        color: "red",
+        position: "absolute",
+        fontSize: "8px",
+        padding: "2.5px",
+        fontWeight:600,
+        right: 0
+    },
+
     viewTableStartTotal:{
         borderBottom: "0px solid black",
         borderLeft: "1px solid black",
@@ -197,6 +205,17 @@ const styles = StyleSheet.create({
         margin: "0"
     },
 
+    // viewTableLargeClose:{
+    //     borderTop: "1px solid black",
+    //     borderLeft: "1px solid black",
+    //     borderRight: "1px solid black",
+    //     borderBottom:"1px solid black",
+    //     height: "80.5px",
+    //     display: "flex",
+    //     flexDirection: "row",
+    //     margin: "0"
+    // },
+
     viewTableEnd: {
         borderBottom: "1px solid black",
         borderLeft: "1px solid black",
@@ -230,14 +249,20 @@ const styles = StyleSheet.create({
     viewCellLarge: {
         borderRight: "1px solid black",
         height: "80px",
-        width: "33.3%"
+        width: "33.33%"
     },
 
 
     viewCellLargeLeft: {
         borderRight: "1px solid black",
         height: "80px",
-        width: "16.7%"
+        width: "16.68%"
+    },
+
+    viewCellLargeEnd:{
+        borderRight: "0px solid black",
+        height: "80px",
+        width: "33.33%"
     },
 
     viewCellExtreme: {
@@ -257,12 +282,11 @@ const styles = StyleSheet.create({
 })
 
 // Create Document Component
-function PDF_Creation_Client() {
+function PDF_Supplier() {
     return (
         <>
             <Sidebar />
             <PDFViewer style={styles.viewer}>
-                {/* Start of the document*/}
                 <Document>
                     <Page size="A4" style={styles.page}>
 
@@ -279,35 +303,35 @@ function PDF_Creation_Client() {
 
                         <View style={styles.viewTable}>
                             <View style={styles.viewCellLeft}>
-                                <Text style={styles.p}>CLIENT ID</Text>
+                                <Text style={styles.p}>SUPPLIER NAME</Text>
                             </View>
                             <View style={styles.viewCell}>
                                 <Text style={styles.p}>XXXXXX</Text>
                             </View>
                             <View style={styles.viewCellLeft}>
-                                <Text style={styles.pr}>Date:</Text>
+                                <Text style={styles.pr}>ORDER REF</Text>
                             </View>
                             <View style={styles.viewCellEnd}>
-                                <Text style={styles.p}>12-12-1222</Text>
+                                <Text style={styles.p}>XXXXXXX</Text>
                             </View>
                         </View>
 
                         <View style={styles.viewTable}>
                             <View style={styles.viewCellLeft}>
-                                <Text style={styles.p}>FIRST NAME</Text>
+                                <Text style={styles.p}>SUPPLIER ID</Text>
                             </View>
                             <View style={styles.viewCell}>
-                                <Text style={styles.p}>JOHN</Text>
+                                <Text style={styles.p}>12345</Text>
                             </View>
                             <View style={styles.viewCellLeft}>
-                                <Text style={styles.pr}>PC Number:</Text>
+                                <Text style={styles.pr}>DATE ODERED</Text>
                             </View>
                             <View style={styles.viewCellEnd}>
                                 <Text style={styles.p}>XXXXXX</Text>
                             </View>
                         </View>
 
-                        <View style={styles.viewTable}>
+                        {/* <View style={styles.viewTable}>
                             <View style={styles.viewCellLeft}>
                                 <Text style={styles.p}>SURNAME</Text>
                             </View>
@@ -320,9 +344,9 @@ function PDF_Creation_Client() {
                             <View style={styles.viewCellEnd}>
                                 <Text style={styles.p}>____</Text>
                             </View>
-                        </View>
+                        </View> */}
 
-                        <View style={styles.viewTable}>
+                        {/* <View style={styles.viewTable}>
                             <View style={styles.viewCellLeft}>
                                 <Text style={styles.p}>NUMBER</Text>
                             </View>
@@ -335,124 +359,43 @@ function PDF_Creation_Client() {
                             <View style={styles.viewCellEnd}>
                                 <Text style={styles.p}>XXXXXX</Text>
                             </View>
-                        </View>
+                        </View> */}
 
                         <View style={styles.viewTableLarge}>
                             <View style={styles.viewCellLargeLeft}>
-                                <Text style={styles.p}>ROAD/STREET</Text>
+                                <Text style={styles.p}>ADDRESS</Text>
                             </View>
                             <View style={styles.viewCellLarge}>
                                 <Text style={styles.p}>XXXXX DBDVDB
                                     EEMNDNMEDNME EDJMENMNEDNM
                                     ENMEDNMENDM</Text>
                             </View>
-
-                            <View style={styles.viewCellExtreme}>
-                                <View style={styles.viewTableSmall}>
-                                    <View style={styles.viewCell}>
-                                        <Text style={styles.p}>Payment Details:</Text>
-                                    </View>
-                                    <View style={styles.viewCell}>
-                                        <Text style={styles.p}>Amount</Text>
-                                    </View>
-                                    <View style={styles.viewCellEnd}>
-                                        <Text style={styles.p}>Remark</Text>
-                                    </View>
-                                </View>
-
-                                <View style={styles.viewTableSmall}>
-                                    <View style={styles.viewCell}>
-                                        <Text style={styles.p}>BANK</Text>
-                                    </View>
-                                    <View style={styles.viewCell}>
-                                        <Text style={styles.p}>_____</Text>
-                                    </View>
-                                    <View style={styles.viewCellEnd}>
-                                        <Text style={styles.p}>_____</Text>
-                                    </View>
-                                </View>
-
-                                <View style={styles.viewTableSmall}>
-                                    <View style={styles.viewCell}>
-                                        <Text style={styles.p}>CARD</Text>
-                                    </View>
-                                    <View style={styles.viewCell}>
-                                        <Text style={styles.p}>_____</Text>
-                                    </View>
-                                    <View style={styles.viewCellEnd}>
-                                        <Text style={styles.p}>_____</Text>
-                                    </View>
-                                </View>
-
-                                <View style={styles.viewTableSmall}>
-                                    <View style={styles.viewCell}>
-                                        <Text style={styles.p}>CASH</Text>
-                                    </View>
-                                    <View style={styles.viewCell}>
-                                        <Text style={styles.p}>_____</Text>
-                                    </View>
-                                    <View style={styles.viewCellEnd}>
-                                        <Text style={styles.p}>_____</Text>
-                                    </View>
-                                </View>
-
-                                <View style={styles.viewTableSmall}>
-                                    <View style={styles.viewCell}>
-                                        <Text style={styles.p}>CHEQUE</Text>
-                                    </View>
-                                    <View style={styles.viewCell}>
-                                        <Text style={styles.p}>_____</Text>
-                                    </View>
-                                    <View style={styles.viewCellEnd}>
-                                        <Text style={styles.p}>_____</Text>
-                                    </View>
-                                </View>
-
-                                <View style={styles.viewTableSmallEnd}>
-                                    <View style={styles.viewCell}>
-                                        <Text style={styles.p}>EXCHANGE</Text>
-                                    </View>
-                                    <View style={styles.viewCell}>
-                                        <Text style={styles.p}>_____</Text>
-                                    </View>
-                                    <View style={styles.viewCellEnd}>
-                                        <Text style={styles.p}>_____</Text>
-                                    </View>
-                                </View>
+                            <View style={styles.viewCellLargeLeft}>
+                                <Text style={styles.pr}>SUPPLIER</Text>
+                            </View>
+                            <View style={styles.viewCellLargeEnd}>
+                                <Text style={styles.p}>XXXXX DBDVDB
+                                    EEMNDNMEDNME EDJMENMNEDNM
+                                    ENMEDNMENDM</Text>
                             </View>
                         </View>
 
                         <View style={styles.viewTable}>
                             <View style={styles.viewCellLeft}>
-                                <Text style={styles.p}>TOWN CITY</Text>
+                                <Text style={styles.p}>Tel:</Text>
                             </View>
                             <View style={styles.viewCell}>
                                 <Text style={styles.p}>XXXXXX</Text>
                             </View>
                             <View style={styles.viewCellLeft}>
-                                <Text style={styles.pr}></Text>
+                                <Text style={styles.pr}>Invoice No: </Text>
                             </View>
                             <View style={styles.viewCellEnd}>
-                                <Text style={styles.p}></Text>
+                                <Text style={styles.p}>xxxxxx</Text>
                             </View>
                         </View>
 
                         <View style={styles.viewTable}>
-                            <View style={styles.viewCellLeft}>
-                                <Text style={styles.p}>POSTAL CODE</Text>
-                            </View>
-                            <View style={styles.viewCell}>
-                                <Text style={styles.p}>XXXXXX</Text>
-                            </View>
-                            <View style={styles.viewCellLeft}>
-                                <Text style={styles.pr}></Text>
-                            </View>
-                            <View style={styles.viewCellEnd}>
-                                <Text style={styles.p}></Text>
-                            </View>
-                        </View>
-
-                        <View style={styles.viewTableEnd}>
                             <View style={styles.viewCellLeft}>
                                 <Text style={styles.p}>Email</Text>
                             </View>
@@ -460,7 +403,54 @@ function PDF_Creation_Client() {
                                 <Text style={styles.p}>XXXXXX</Text>
                             </View>
                             <View style={styles.viewCellLeft}>
-                                <Text style={styles.p}>TOTAL PAID</Text>
+                                <Text style={styles.pr}>Sales Order</Text>
+                            </View>
+                            <View style={styles.viewCellEnd}>
+                                <Text style={styles.p}></Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.viewTable}>
+                            <View style={styles.viewCellLeft}>
+                                <Text style={styles.p}>Tax Date:</Text>
+                            </View>
+                            <View style={styles.viewCell}>
+                                <Text style={styles.p}>XXXXXX</Text>
+                            </View>
+                            <View style={styles.viewCellLeft}>
+                                <Text style={styles.pr}>Sale Ref</Text>
+                            </View>
+                            <View style={styles.viewCellEnd}>
+                                <Text style={styles.p}>1234</Text>
+                            </View>
+                        </View>
+                        <View style={styles.viewTableLarge}>
+                            <View style={styles.viewCellLargeLeft}>
+                                <Text style={styles.p}>Invoice To:</Text>
+                            </View>
+                            <View style={styles.viewCellLarge}>
+                                <Text style={styles.p}>XXXXX DBDVDB
+                                    EEMNDNMEDNME EDJMENMNEDNM
+                                    ENMEDNMENDM</Text>
+                            </View>
+                            <View style={styles.viewCellLargeLeft}>
+                                <Text style={styles.pr}>Deliver To:</Text>
+                            </View>
+                            <View style={styles.viewCellLargeEnd}>
+                                <Text style={styles.p}>XXXXX DBDVDB
+                                    EEMNDNMEDNME EDJMENMNEDNM
+                                    ENMEDNMENDM</Text>
+                            </View>
+                        </View>
+                        <View style={styles.viewTableEnd}>
+                            <View style={styles.viewCellLeft}>
+                                <Text style={styles.p}>Customer Account No:</Text>
+                            </View>
+                            <View style={styles.viewCell}>
+                                <Text style={styles.p}>XXXXXX</Text>
+                            </View>
+                            <View style={styles.viewCellLeft}>
+                                <Text style={styles.pr}>Customer VAT No.</Text>
                             </View>
                             <View style={styles.viewCellEnd}>
                                 <Text style={styles.p}>1234</Text>
@@ -475,7 +465,6 @@ function PDF_Creation_Client() {
 
 
                         <Table
-
                             style={{ tableLayout: "fixed" }}
                             data={[
                                 { firstName: "John", lastName: "Smith", dob: "noop", country: "Australia", phoneNumber: "xxx-0000-0000" },
@@ -485,25 +474,19 @@ function PDF_Creation_Client() {
                         >
                             <TableHeader textAlign={"center"}>
                                 <TableCell style={styles.productTableHeading}>
-                                    Product ID
-                                </TableCell>
-                                <TableCell style={styles.productTableHeading}>
-                                    Serial No.
+                                    ITEM ID
                                 </TableCell>
                                 <TableCell style={styles.productTableHeading}>
                                     QTY
                                 </TableCell>
                                 <TableCell style={styles.productTableHeading}>
+                                    UNIT PRICE
+                                </TableCell>
+                                <TableCell style={styles.productTableHeading}>
                                     Description
                                 </TableCell>
                                 <TableCell style={styles.productTableHeading}>
-                                    Fineness
-                                </TableCell>
-                                <TableCell style={styles.productTableHeading}>
-                                    WT
-                                </TableCell>
-                                <TableCell style={styles.productTableHeading}>
-                                    Total
+                                    Amount
                                 </TableCell>
                             </TableHeader>
 
@@ -513,40 +496,49 @@ function PDF_Creation_Client() {
                                 <DataTableCell style={styles.productTableCell} getContent={(r) => r.dob.toLocaleString()} />
                                 <DataTableCell style={styles.productTableCell} getContent={(r) => r.country} />
                                 <DataTableCell style={styles.productTableCell} getContent={(r) => r.phoneNumber} />
-                                <DataTableCell style={styles.productTableCell} getContent={(r) => r.country} />
-                                <DataTableCell style={styles.productTableCell} getContent={(r) => r.phoneNumber} />
                             </TableBody>
                         </Table>
                         <View style={styles.viewTableStartTotal}>
-                            <View style={{width:"width:86%"}}>
+                            <View style={{width:"width:60%"}}>
                                 
                             </View>
-                            <View style={{width:"17.2%", borderLeft:"1px solid black"}}>
-                                <Text style={styles.p}>Price:</Text>
+                            <View style={{width:"20%", borderLeft:"1px solid black"}}>
+                                <Text style={styles.p}>SUBTOTAL</Text>
                             </View>
-                            <View style={{width:"17.1%", borderLeft:"1px solid black"}}>
+                            <View style={{width:"20%", borderLeft:"1px solid black"}}>
                                 <Text style={styles.p}>0</Text>
                             </View>
                         </View>
                         <View style={styles.viewTableStartTotal}>
-                            <View style={{width:"width:86%"}}>
+                            <View style={{width:"width:60%"}}>
                                 
                             </View>
-                            <View style={{width:"17.2%", borderLeft:"1px solid black"}}>
-                                <Text style={styles.p}>Paid:</Text>
+                            <View style={{width:"20%", borderLeft:"1px solid black"}}>
+                                <Text style={styles.p}>VAT</Text>
                             </View>
-                            <View style={{width:"17.1%", borderLeft:"1px solid black"}}>
+                            <View style={{width:"20%", borderLeft:"1px solid black"}}>
                                 <Text style={styles.p}>12344</Text>
                             </View>
                         </View>
                         <View style={styles.viewTableStart}>
-                            <View style={{width:"width:86%"}}>
+                            <View style={{width:"width:60%"}}>
                                 
                             </View>
-                            <View style={{width:"17.2%", borderLeft:"1px solid black"}}>
-                                <Text style={styles.p}>To Pay:</Text>
+                            <View style={{width:"20%", borderLeft:"1px solid black"}}>
+                                <Text style={styles.p}>TOTAL</Text>
                             </View>
-                            <View style={{width:"17.1%", borderLeft:"1px solid black"}}>
+                            <View style={{width:"20%", borderLeft:"1px solid black"}}>
+                                <Text style={styles.p}>12344</Text>
+                            </View>
+                        </View>
+                        <View style={styles.viewTableStart}>
+                            <View style={{width:"width:60%"}}>
+                            <Text style={styles.prr}>(Output Tax to be accounted for HM Customs & Excise by the buyer)</Text>
+                            </View>
+                            <View style={{width:"20%", borderLeft:"1px solid black"}}>
+                                <Text style={styles.p}>OUTPUT Tax</Text>
+                            </View>
+                            <View style={{width:"20%", borderLeft:"1px solid black"}}>
                                 <Text style={styles.p}>12344</Text>
                             </View>
                         </View>
@@ -564,14 +556,14 @@ function PDF_Creation_Client() {
 
 
 
-                        <Text>  </Text>
+                        {/* <Text>  </Text> */}
 
-                        <Text style={{ fontSize: "9px", color: "blue" }}>FULL TERMS AND CONDITIONS SEE NOTICE</Text>
+                        {/* <Text style={{ fontSize: "9px", color: "blue" }}>FULL TERMS AND CONDITIONS SEE NOTICE</Text>
                         <Text style={{ fontSize: "9px", color: "blue" }} >REFUNDS</Text>
-                        <Text style={{ fontSize: "9px", color: "blue" }} >RETURNS CHARGE</Text>
+                        <Text style={{ fontSize: "9px", color: "blue" }} >RETURNS CHARGE</Text> */}
                         
-                        <Text>  </Text>
-                        <View style={styles.viewTableStartSign}>
+                        {/* <Text>  </Text> */}
+                        {/* <View style={styles.viewTableStartSign}>
                             <View style={{width:"19%", borderLeft:"0px solid black",color:"red"}}>
                                 <Text style={styles.p}>SOLD BY <Text style={{fontSize:"9px"}}>(PRINT NAME):</Text></Text>
                             </View>
@@ -584,9 +576,9 @@ function PDF_Creation_Client() {
                             <View style={{width:"25%", borderBottom:"1px solid black"}}>
                                 <Text style={styles.p}>deepak</Text>
                             </View>
-                        </View>
+                        </View> */}
 
-                        <View style={styles.viewTableStartSign}>
+                        {/* <View style={styles.viewTableStartSign}>
                             <View style={{width:"19%", borderLeft:"0px solid black",color:"red"}}>
                                 
                             </View>
@@ -599,7 +591,7 @@ function PDF_Creation_Client() {
                             <View style={{width:"25%", borderBottom:"1px solid black"}}>
                                 <Text style={styles.p}>xxxxxxxxxx</Text>
                             </View>
-                        </View>
+                        </View> */}
 
                         <Text>  </Text>
 
@@ -620,4 +612,4 @@ function PDF_Creation_Client() {
         </>
     );
 }
-export default PDF_Creation_Client;
+export default PDF_Supplier;

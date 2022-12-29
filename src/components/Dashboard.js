@@ -276,6 +276,7 @@ const Dashboard = () => {
               border: "1.5px solid #267ED4",
               padding: 3,
               margin: "0px 0px",
+              borderRadius:"0"
             }}
             onChange={(e) => (value2 = e.target.value)}
           // className="select-option"
@@ -300,6 +301,7 @@ const Dashboard = () => {
               border: "1.5px solid #267ED4",
               padding: 3,
               margin: "0px 0px",
+              borderRadius:"0"
             }}
             onChange={(e) => (value2 = e.target.value)}
           
@@ -323,6 +325,7 @@ const Dashboard = () => {
             color: "#fff",
             background: "#267ED4",
             border: "none",
+            borderRadius:"none"
           }}
         >
           Select
