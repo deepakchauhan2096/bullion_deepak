@@ -4,7 +4,7 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import Sidebar from "./Sidebar";
 import { useNavigate } from "react-router-dom";
 import Bullion_invoice from "./Bullion_invoice";
-import Button from "@mui/material/Button";
+
 
 
 
@@ -89,7 +89,7 @@ const Dashboard = () => {
   };
 
   const insertObject = (jsonbody) => {
-    finalArray = [...finalArray, jsonbody];
+    finalArray = [...finalArray, jsonbody, jsonbody.quant = 1];
     setBody((prev) => {
       return [...prev, jsonbody];
     });

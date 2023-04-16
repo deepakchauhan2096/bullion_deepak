@@ -119,6 +119,13 @@ function Sidebar(props) {
                     <Links to='/clientpurchase'>Client purchase</Links>
                 </ListItem>
             </List>
+            <List>
+                <ListItem>
+                    <PostAdd />
+                    <Links to='/Sale_Reciept' >Sale Reciept</Links>
+                
+                </ListItem>
+            </List>
             <Divider />
         </div >
     );

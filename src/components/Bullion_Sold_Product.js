@@ -35,7 +35,7 @@ const Bullion_Sold_Product = () => {
 
   useEffect(() => {
     const allListdata = () => {
-      fetch(`http://${process.env.REACT_APP_SERVER_IP}:4000/sold_product`)
+      fetch(`http://${process.env.REACT_APP_SERVER_IP}:4000/sold_product_bullion`)
         .then((res) => res.json())
         .then((data) =>
           setAllList(data)
@@ -50,7 +50,7 @@ const Bullion_Sold_Product = () => {
     setOpen(true);
     console.log(cellValues, "celvalue");
     setModal_data(alllist.find((o) => o.order_id == cellValues.order_id))
-    navigate("/View_more", { state: { modal: alllist.find((o) => o.client_id == cellValues.client_id) } });
+    navigate("/View_more", { state: { modal: alllist.find((o) => o.order_id == cellValues.order_id) } });
 
   };
   const handleClose = () => {
@@ -95,14 +95,14 @@ const Bullion_Sold_Product = () => {
     first_name: row.first_name,
     surname: row.surname,
     postcode: row.postcode,
-    products: row.products.products_data?.map((e, index) => e.CT_number),
+    products: row.products.products_data?.map((e, index) => e.code),
     mobile: row.mobile,
     email: row.email,
   }));
 
 
   return (
-    <div className=''>
+    <div>
       <Modal
         open={open}
         onClose={handleClose}
@@ -136,20 +136,19 @@ const Bullion_Sold_Product = () => {
       </Modal>
 
       <Sidebar />
-
+      <center> <h4 style={{ margin: 20 }}>Orders</h4></center>
 
       {alllist ?
         <DataGrid
-          style={{ height: "100vh", width: "100%" }}
+          style={{ height: "28rem", width: "100%", margin: 10 }}
           rows={rows}
           columns={columns}
           pageSize={20}
           getRowId={(row) => row.order_id}
           rowsPerPageOptions={[20]}
           components={{ Toolbar: GridToolbar }}
-          density="compact"
         /> : null}
-
+      {/* <button onClick={console.log(alllist)} >click to console</button> */}
     </div>
   )
 }

@@ -22,6 +22,8 @@ import Order_pdf from "./components/Order_pdf";
 import FormOrderToSupplier from "./components/ClientPurchase";
 import ClientPurchase from "./components/ClientPurchase";
 import PDF_Creation_Client from "./components/PDF_Creation_Client";
+import Sale_Reciept from "./components/Sale_Reciept";
+import PDF_Creation_Sale_Reciept from "./components/PDF_Creation_Sale_Reciept";
 
 const drawerWidth = 280;
 
@@ -68,7 +70,10 @@ const drawerWidth = 280;
         <Route path="/View_more" element={<View_more/>}/>
         <Route path="/Order_pdf" element={ <Order_pdf/> }/>
         <Route path="/clientpurchase" element={ <ClientPurchase/> }/>
+        <Route path="/Sale_Reciept" element={ <Sale_Reciept/> }/>
+        <Route path="/PDF_Creation_Sale_Reciept" element={<PDF_Creation_Sale_Reciept />} />
         <Route path="/PDF_Creation_Client" element={ <PDF_Creation_Client /> }/>
+        
       </Routes>
     </Router>
   </Section>

@@ -6,10 +6,7 @@ import React, {
   forwardRef,
   useImperativeHandle,
 } from "react";
-//   import Sidebar from "../Sidebar";
-// import styled from "styled-components";
 import { dataContext } from "../helpers/context";
-import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -19,7 +16,6 @@ import TextField from "@mui/material/TextField";
 import { useLocation, useNavigate } from "react-router-dom";
 import CircularProgress from "@mui/material/CircularProgress";
 import Backdrop from "@mui/material/Backdrop";
-// import Client from "getaddress-api";
 import { Helmet } from "react-helmet";
 import { authentication } from "../firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
@@ -380,80 +376,81 @@ const Bullion_invoice = forwardRef((props, ref) => {
           // setFormData((prev) => {
           //     return { ...prev, client_id: parseInt(data.res.rows[0].client_id), TodayDate: location.state[0].TodayDate }
           // })
-          fetch(`http://${process.env.REACT_APP_SERVER_IP}/createorder`, {
-            method: "post",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              customer_info: {
-                ...formData,
-                client_id: parseInt(data.res.rows[0].client_id),
-              },
-              products: FormValue,
-            }),
-          })
-            .then((res) => res.json())
-            .then((response) => {
-              console.log("craete order data > ", response);
-              if (response.success == false) {
-                alert("API failed (create order)");
-                setLoader(false);
-              } else {
+          // fetch(`http://${process.env.REACT_APP_SERVER_IP}/createorder`, {
+          //   method: "post",
+          //   headers: { "Content-Type": "application/json" },
+          //   body: JSON.stringify({
+          //     customer_info: {
+          //       ...formData,
+          //       client_id: parseInt(data.res.rows[0].client_id),
+          //     },
+          //     products: FormValue,
+          //   }),
+          // })
+            // .then((res) => res.json())
+            // .then((response) => {
+            //   console.log("craete order data > ", response);
+            //   if (response.success == false) {
+            //     alert("API failed (create order)");
+            //     setLoader(false);
+            //   } else {
                 // alert("Order created Successfully");
 
                 // setGlobleData({ ...formData, order_id: parseInt(response.res.rows[0].order_id), client_id: parseInt(data.res.rows[0].client_id), TodayDate: location.state[0].TodayDate })
-                console.log("trigger");
-                navigate("/PDF_Creation", {
-                  state: {
-                    products: FormValue,
-                    agreePrice: agreePrice,
-                    customer_info: {
-                      ...formData,
-                      invoice_num: temp_invoice_num,
-                      order_id: parseInt(response.res.rows[0].order_id),
-                      client_id: parseInt(data.res.rows[0].client_id),
-                    },
+            //     console.log("trigger");
+            //     navigate("/PDF_Creation", {
+            //       state: {
+            //         products: FormValue,
+            //         agreePrice: agreePrice,
+            //         customer_info: {
+            //           ...formData,
+            //           invoice_num: temp_invoice_num,
+            //           order_id: parseInt(response.res.rows[0].order_id),
+            //           client_id: parseInt(data.res.rows[0].client_id),
+            //         },
+            //       },
+            //     });
+
+            //     setLoader(false);
+            //   }
+            // })
+            // .catch((err) => {
+            //   console.log(err, "error last");
+            //   alert("API not working (createorder)");
+            //   setLoader(false);
+            // });
+
+            fetch(
+              `http://${process.env.REACT_APP_SERVER_IP}:4000/product_user_data_for_bullion`,
+              {
+                method: "post",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  customer_info: {
+                    ...formData,
+                    totalPriceTemp: totalPriceTemp,
+                    total_paid: total_paid,
+                    invoice_num:
+                      formData.first_name +
+                      "/" +
+                      To_genrate_invoice_number +
+                      " /" +
+                      (temp_invoice_num + 1),
+                    client_id: parseInt(data.res.rows[0].client_id),
                   },
-                });
-
-                setLoader(false);
+                  products: FormValue,
+                  agreePrice:agreePrice,
+                  order_type:order_type,
+                }),
               }
-            })
-            .catch((err) => {
-              console.log(err, "error last");
-              alert("API not working (createorder)");
-              setLoader(false);
-            });
-
-          fetch(
-            `http://${process.env.REACT_APP_SERVER_IP}/product_user_data`,
-            {
-              method: "post",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                customer_info: {
-                  ...formData,
-                  totalPriceTemp: totalPriceTemp,
-                  total_paid: total_paid,
-                  invoice_num:
-                    formData.first_name +
-                    "/" +
-                    To_genrate_invoice_number +
-                    " /" +
-                    (temp_invoice_num + 1),
-                  client_id: parseInt(data.res.rows[0].client_id),
-                },
-                products: FormValue,
-                agreePrice: agreePrice,
-              }),
-            }
-          )
-            .then((res) => res.json())
-            .then((response) => {
-              console.log("craete order data > ", response);
-              if (response.success == false) {
-                alert("API failed (create order)");
-                setLoader(false);
-              } else {
+            )
+              .then((res) => res.json())
+              .then((response) => {
+                console.log("craete order data > ", response);
+                if (response.success == false) {
+                  alert("API failed (create order)");
+                  setLoader(false);
+                } else {
                 // alert("Order created Successfully");
 
                 // setGlobleData({ ...formData, order_id: parseInt(response.res.rows[0].order_id), client_id: parseInt(data.res.rows[0].client_id), TodayDate: location.state[0].TodayDate })
@@ -461,6 +458,7 @@ const Bullion_invoice = forwardRef((props, ref) => {
                 navigate("/PDF_Creation", {
                   state: {
                     products: FormValue,
+                    agreePrice:agreePrice,
                     customer_info: {
                       ...formData,
                       invoice_num: temp_invoice_num,
@@ -1254,6 +1252,121 @@ const Bullion_invoice = forwardRef((props, ref) => {
             <br />
           </div>
         </div>
+
+        {order_type == "Order" ? (
+                    <div 
+                    
+                      style={{
+                        background: "#fff",
+                        width: "48%",
+                        padding: 5,
+                        margin: "0.5%",
+                        borderRadius: "0px",
+                        border: "0.5px solid #000",
+                        
+                      }}
+                    >
+                      <label for="ID_1" style={{color:"blue"}}> ID's Check : {images?.length || formData.images?.length} Selcted </label>
+                      <br />
+                      <input
+                        style={{ margin: "2%" }}
+                        type="file"
+                        name="ID_1  "
+                        multiple
+                        onChange={(e) => handleImages(e)}
+                      />
+
+                      {/* <button
+                        style={{
+                          background: "#fff",
+                          color: "#1976D2",
+                          border: "1px solid",
+                        }}
+                        onClick={() => console.log(images)}
+                      >
+                        Show
+                      </button> */}
+                      {formData.images != null ?
+                       (
+                        <div>
+                          {formData.images.map((e, index) => (
+                            <div
+                              style={{
+                                borderRadius: "10px",
+                                border: "1px solid black",
+                                margin: "2%",
+                              }}
+                            >
+                              <img
+                                src={e}
+                                style={{
+                                  borderRadius: "10px",
+                                  width: "100%",
+                                  height: "100%",
+                                }}
+                              />
+                              {/* <center>
+                                <button
+                                onClick={()=>delete_element(e)}
+                                  style={{
+                                    borderRadius: "10px",
+                                    background: "#fff",
+                                    color: "red",
+                                    width: "80%",
+                                    border: "none",
+                                    margin: "2%",
+                                    fontWeight: "bold",
+                                  }}
+                                >
+                                  Delete 🗑️
+                                </button>
+                              </center> */}
+                            </div>
+                          ))}
+                        </div>
+                      ) : null
+                      }
+                      {images ? (
+                        <div>
+                          {images.map((e, index) => (
+                            <div
+                              style={{
+                                borderRadius: "10px",
+                                border: "1px solid black",
+                                margin: "2%",
+                              }}
+                            >
+                              <img
+                                src={e}
+                                style={{
+                                  borderRadius: "10px",
+                                  width: "100%",
+                                  height: "100%",
+                                }}
+                              />
+                              <center>
+                                <button
+                                onClick={()=>delete_element(e)}
+                                  style={{
+                                    borderRadius: "10px",
+                                    background: "#fff",
+                                    color: "red",
+                                    width: "80%",
+                                    border: "none",
+                                    margin: "2%",
+                                    fontWeight: "bold",
+                                  }}
+                                >
+                                  Delete 🗑️
+                                </button>
+                              </center>
+                            </div>
+                          ))}
+                        </div>
+                      ) : null}
+                    </div>
+                  ) : null}
+                  
 
         {/* {FormValue ? (
             <DataGrid
